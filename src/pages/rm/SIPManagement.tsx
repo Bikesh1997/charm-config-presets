@@ -28,16 +28,23 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { RepeatIcon, Plus, Pause, Play, Edit, TrendingUp } from "lucide-react";
+import { RepeatIcon, Plus, Pause, Play, Edit, TrendingUp, CheckCircle2 } from "lucide-react";
 
 const SIPManagement = () => {
   const [open, setOpen] = useState(false);
   const [splitMode, setSplitMode] = useState(false);
+  const [confirmDialog, setConfirmDialog] = useState(false);
+  const [actionMessage, setActionMessage] = useState("");
   const [allocations, setAllocations] = useState([
     { strategy: "Multi Cap", percentage: 40 },
     { strategy: "Large Cap", percentage: 40 },
     { strategy: "Cash Equivalent", percentage: 20 },
   ]);
+
+  const handleAction = (action: string, customer: string) => {
+    setActionMessage(`${action} for ${customer} has been completed successfully`);
+    setConfirmDialog(true);
+  };
 
   const sips = [
     { id: 1, customer: "Rajesh Sharma", amount: "₹2,00,000", frequency: "Monthly", strategy: "Large Cap", nextDate: "01-Feb-2025", status: "Active", split: false },
@@ -273,15 +280,27 @@ const SIPManagement = () => {
                   <TableCell className="text-right">
                     <div className="flex items-center justify-end gap-2">
                       {sip.status === "Active" ? (
-                        <Button size="sm" variant="ghost">
+                        <Button 
+                          size="sm" 
+                          variant="ghost"
+                          onClick={() => handleAction("Pause SIP", sip.customer)}
+                        >
                           <Pause className="h-4 w-4" />
                         </Button>
                       ) : (
-                        <Button size="sm" variant="ghost">
+                        <Button 
+                          size="sm" 
+                          variant="ghost"
+                          onClick={() => handleAction("Resume SIP", sip.customer)}
+                        >
                           <Play className="h-4 w-4" />
                         </Button>
                       )}
-                      <Button size="sm" variant="ghost">
+                      <Button 
+                        size="sm" 
+                        variant="ghost"
+                        onClick={() => handleAction("Edit SIP", sip.customer)}
+                      >
                         <Edit className="h-4 w-4" />
                       </Button>
                     </div>
@@ -292,6 +311,20 @@ const SIPManagement = () => {
           </Table>
         </CardContent>
       </Card>
+
+      <Dialog open={confirmDialog} onOpenChange={setConfirmDialog}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2">
+              <CheckCircle2 className="h-5 w-5 text-kotak-success" />
+              Action Completed
+            </DialogTitle>
+            <DialogDescription className="pt-4">
+              <p className="text-base">{actionMessage}</p>
+            </DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
