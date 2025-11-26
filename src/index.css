@@ -8,41 +8,53 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Kotak Bank Brand Colors */
+    --background: 0 0% 97%;
+    --foreground: 0 0% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 10%;
 
-    --primary: 221 83% 53%;
-    --primary-foreground: 210 40% 98%;
+    /* Kotak Red as Primary */
+    --primary: 357 85% 56%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Kotak Navy Blue as Secondary */
+    --secondary: 210 100% 18%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 13% 95%;
-    --muted-foreground: 220 9% 46%;
+    /* Muted backgrounds */
+    --muted: 0 0% 97%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 221 83% 53%;
-    --accent-foreground: 210 40% 98%;
+    /* Success Green */
+    --accent: 145 100% 33%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 221 83% 53%;
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 210 20% 70%;
 
     --radius: 0.5rem;
     
-    --success: 142 76% 36%;
-    --success-foreground: 138 76% 97%;
+    /* Custom Kotak tokens */
+    --kotak-red: 357 85% 56%;
+    --kotak-navy: 210 100% 18%;
+    --kotak-success: 145 100% 33%;
+    --text-primary: 0 0% 10%;
+    --text-secondary: 0 0% 40%;
     
-    --warning: 38 92% 50%;
-    --warning-foreground: 48 96% 89%;
+    /* Shadows */
+    --shadow-kotak: 0 4px 20px rgba(0, 46, 93, 0.08);
+    
+    /* Gradients */
+    --gradient-portfolio: linear-gradient(135deg, hsl(210, 100%, 97%) 0%, hsl(210, 80%, 96%) 100%);
 
     --sidebar-background: 0 0% 98%;
 
@@ -62,39 +74,33 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 210 100% 10%;
+    --foreground: 0 0% 98%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 210 100% 13%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 210 100% 13%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 221 83% 53%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 357 85% 56%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 210 100% 18%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 210 100% 15%;
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 145 100% 33%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 221 83% 53%;
-    
-    --success: 142 76% 36%;
-    --success-foreground: 138 76% 97%;
-    
-    --warning: 38 92% 50%;
-    --warning-foreground: 48 96% 89%;
+    --border: 210 100% 20%;
+    --input: 210 100% 20%;
+    --ring: 210 100% 40%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
