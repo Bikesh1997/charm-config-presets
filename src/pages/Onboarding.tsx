@@ -99,7 +99,7 @@ const Onboarding = () => {
             </div>
           </div>
           
-          {currentStep !== 1 && (
+          {currentStep !== 1 && currentStep !== 6 && (
             <div className="flex gap-4">
               <div className="flex-shrink-0 w-[40px]"></div>
               <div className="flex-1 min-w-0">

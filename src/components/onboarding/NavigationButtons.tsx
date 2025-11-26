@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { useOnboardingStore } from "@/store/onboardingStore";
 import { ArrowRight } from "lucide-react";
@@ -18,6 +19,22 @@ const NavigationButtons = () => {
     goToNextStep();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  // Add global Enter key listener for all steps
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Enter') {
+        const validation = validateStep(currentStep, formData);
+        if (validation.isValid) {
+          e.preventDefault();
+          handleContinue();
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [currentStep, formData]);
 
   const buttonText = currentStep === 6 ? "Submit" : "Continue";
 

@@ -29,7 +29,7 @@ const Landing = () => {
               onClick={() => navigate('/rm-portal/dashboard')}
               className="border-kotak-red text-kotak-red hover:bg-kotak-red/5"
             >
-              Admin
+              Login RM
             </Button>
             <Button 
               variant="outline" 

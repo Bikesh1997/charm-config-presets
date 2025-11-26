@@ -73,17 +73,17 @@ const SuccessScreen = () => {
         {/* Success Icon */}
         <div className="flex justify-center">
           <div className="relative">
-            <div className="absolute inset-0 bg-kotak-success/20 rounded-full blur-3xl animate-pulse" />
-            <CheckCircle2 className="h-32 w-32 text-kotak-success relative" />
+            <div className="absolute inset-0 bg-kotak-success/20 rounded-full blur-2xl animate-pulse" />
+            <CheckCircle2 className="h-20 w-20 text-kotak-success relative" />
           </div>
         </div>
 
         {/* Success Message */}
         <div className="text-center space-y-3">
-          <h1 className="text-4xl md:text-5xl font-bold text-kotak-navy">
-            Welcome to Kotak PMS! 🎉
+          <h1 className="text-2xl md:text-3xl font-bold text-kotak-navy">
+            Welcome to Kotak PMS!
           </h1>
-          <p className="text-xl text-muted-foreground">
+          <p className="text-lg text-muted-foreground">
             Your application has been submitted successfully
           </p>
         </div>

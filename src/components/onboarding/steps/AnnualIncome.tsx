@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useOnboardingStore } from "@/store/onboardingStore";
 import { Card } from "@/components/ui/card";
 import { Check, IndianRupee } from "lucide-react";
@@ -21,6 +21,19 @@ const AnnualIncome = () => {
     setSelected(value);
     updateFormData({ annualIncome: value });
   };
+
+  // Add keyboard support for Enter key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Enter' && selected) {
+        e.preventDefault();
+        // Trigger navigation
+        document.querySelector<HTMLButtonElement>('button[type="button"]')?.click();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selected]);
 
   return (
     <div className="space-y-8 animate-fade-in">

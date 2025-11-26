@@ -15,7 +15,7 @@ const Dashboard = () => {
     <div className="space-y-6">
       {/* Welcome Header */}
       <div className="mb-6">
-        <h1 className="text-3xl font-bold text-kotak-blue">Welcome, {pmsData.user.name}</h1>
+        <h1 className="text-2xl font-bold text-kotak-blue">Welcome, {pmsData.user.name}</h1>
         <p className="text-sm text-muted-foreground mt-1">
           Account: {pmsData.user.account_id} | Last Updated: {new Date(pmsData.user.last_valuation_date).toLocaleDateString("en-IN")}
         </p>
