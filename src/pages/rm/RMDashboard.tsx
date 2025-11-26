@@ -1,7 +1,15 @@
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { TrendingUp, Users, AlertCircle, CheckCircle, XCircle, Clock, DollarSign, PieChart } from "lucide-react";
+import { TrendingUp, Users, AlertCircle, CheckCircle, XCircle, Clock, IndianRupee, PieChart } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import {
   Table,
   TableBody,
@@ -12,6 +20,8 @@ import {
 } from "@/components/ui/table";
 
 const RMDashboard = () => {
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [dialogContent, setDialogContent] = useState({ title: "", description: "" });
   const aumData = [
     { strategy: "Large Cap", aum: "₹1,250 Cr", change: "+12.3%", color: "text-green-600" },
     { strategy: "Multi Cap", aum: "₹980 Cr", change: "+8.5%", color: "text-green-600" },
@@ -33,6 +43,22 @@ const RMDashboard = () => {
     { name: "Sunita Reddy", aum: "₹28 Cr", returns: "+19.3%", risk: "Medium" },
   ];
 
+  const handleViewAll = (section: string) => {
+    setDialogContent({
+      title: `View All ${section}`,
+      description: `This will navigate to the ${section} page with complete details.`
+    });
+    setDialogOpen(true);
+  };
+
+  const handleAlertAction = (action: string, customer: string) => {
+    setDialogContent({
+      title: `${action} Alert`,
+      description: `Processing ${action.toLowerCase()} action for ${customer}.`
+    });
+    setDialogOpen(true);
+  };
+
   return (
     <div className="p-6 space-y-6">
       {/* Page Header */}
@@ -50,10 +76,10 @@ const RMDashboard = () => {
           <CardContent>
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-3xl font-bold text-kotak-navy">₹3,350 Cr</p>
+                <p className="text-3xl font-bold text-kotak-navy">3,350 Cr</p>
                 <p className="text-sm text-green-600 mt-1">+9.8% YTD</p>
               </div>
-              <DollarSign className="h-8 w-8 text-kotak-red" />
+              <IndianRupee className="h-8 w-8 text-kotak-red" />
             </div>
           </CardContent>
         </Card>
@@ -174,7 +200,7 @@ const RMDashboard = () => {
                 <AlertCircle className="h-5 w-5 text-kotak-red" />
                 Tasks & Alerts
               </div>
-              <Button variant="ghost" size="sm">View All</Button>
+              <Button variant="ghost" size="sm" onClick={() => handleViewAll("Alerts")}>View All</Button>
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -206,7 +232,14 @@ const RMDashboard = () => {
                       </Badge>
                     </TableCell>
                     <TableCell>
-                      <Button size="sm" variant="ghost">
+                      <Button 
+                        size="sm" 
+                        variant="ghost"
+                        onClick={() => handleAlertAction(
+                          alert.status === "action" ? "Resolve" : "View",
+                          alert.customer
+                        )}
+                      >
                         {alert.status === "action" ? "Resolve" : "View"}
                       </Button>
                     </TableCell>
@@ -224,7 +257,7 @@ const RMDashboard = () => {
                 <TrendingUp className="h-5 w-5 text-kotak-red" />
                 Top Customers by AUM
               </div>
-              <Button variant="ghost" size="sm">View All</Button>
+              <Button variant="ghost" size="sm" onClick={() => handleViewAll("Customers")}>View All</Button>
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -253,6 +286,19 @@ const RMDashboard = () => {
           </CardContent>
         </Card>
       </div>
+
+      {/* Dialog for button actions */}
+      <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>{dialogContent.title}</DialogTitle>
+            <DialogDescription>{dialogContent.description}</DialogDescription>
+          </DialogHeader>
+          <div className="flex justify-end">
+            <Button onClick={() => setDialogOpen(false)}>Close</Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
