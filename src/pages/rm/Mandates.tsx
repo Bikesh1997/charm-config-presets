@@ -27,10 +27,17 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { FileText, Plus, Pause, Play, Edit, XCircle, CheckCircle, Clock, AlertCircle } from "lucide-react";
+import { FileText, Plus, Pause, Play, Edit, XCircle, CheckCircle2, Clock, AlertCircle } from "lucide-react";
 
 const Mandates = () => {
   const [open, setOpen] = useState(false);
+  const [confirmDialog, setConfirmDialog] = useState(false);
+  const [actionMessage, setActionMessage] = useState("");
+
+  const handleAction = (action: string, customer: string) => {
+    setActionMessage(`${action} for ${customer} has been initiated successfully`);
+    setConfirmDialog(true);
+  };
 
   const mandates = [
     { id: 1, customer: "Rajesh Sharma", type: "Monthly SIP", amount: "₹2,00,000", frequency: "Monthly", status: "Active", nextDebit: "01-Feb-2025", bank: "HDFC Bank" },
@@ -42,10 +49,10 @@ const Mandates = () => {
 
   const getStatusIcon = (status: string) => {
     switch (status) {
-      case "Active": return <CheckCircle className="h-4 w-4" />;
+      case "Active": return <CheckCircle2 className="h-4 w-4" />;
       case "Pending": return <Clock className="h-4 w-4" />;
       case "Failed": return <XCircle className="h-4 w-4" />;
-      case "Completed": return <CheckCircle className="h-4 w-4" />;
+      case "Completed": return <CheckCircle2 className="h-4 w-4" />;
       default: return <AlertCircle className="h-4 w-4" />;
     }
   };
@@ -227,19 +234,31 @@ const Mandates = () => {
                       {mandate.status}
                     </Badge>
                   </TableCell>
-                  <TableCell className="text-right">
+                   <TableCell className="text-right">
                     <div className="flex items-center justify-end gap-2">
                       {mandate.status === "Active" && (
-                        <Button size="sm" variant="ghost">
+                        <Button 
+                          size="sm" 
+                          variant="ghost"
+                          onClick={() => handleAction("Pause mandate", mandate.customer)}
+                        >
                           <Pause className="h-4 w-4" />
                         </Button>
                       )}
                       {mandate.status === "Pending" && (
-                        <Button size="sm" variant="ghost">
+                        <Button 
+                          size="sm" 
+                          variant="ghost"
+                          onClick={() => handleAction("Activate mandate", mandate.customer)}
+                        >
                           <Play className="h-4 w-4" />
                         </Button>
                       )}
-                      <Button size="sm" variant="ghost">
+                      <Button 
+                        size="sm" 
+                        variant="ghost"
+                        onClick={() => handleAction("Edit mandate", mandate.customer)}
+                      >
                         <Edit className="h-4 w-4" />
                       </Button>
                     </div>
@@ -250,6 +269,20 @@ const Mandates = () => {
           </Table>
         </CardContent>
       </Card>
+
+      <Dialog open={confirmDialog} onOpenChange={setConfirmDialog}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2">
+              <CheckCircle2 className="h-5 w-5 text-kotak-success" />
+              Action Completed
+            </DialogTitle>
+            <DialogDescription className="pt-4">
+              <p className="text-base">{actionMessage}</p>
+            </DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

@@ -65,7 +65,12 @@ export const PerformanceChart = ({ portfolioValues, benchmarkValues }: Performan
             <YAxis tickFormatter={formatCurrency} />
             <Tooltip 
               formatter={(value: number) => formatCurrency(value)}
-              labelStyle={{ color: "#000" }}
+              contentStyle={{ 
+                backgroundColor: 'hsl(var(--background))',
+                border: '1px solid hsl(var(--border))',
+                borderRadius: '8px'
+              }}
+              labelStyle={{ color: 'hsl(var(--foreground))' }}
             />
             <Legend />
             <Line 

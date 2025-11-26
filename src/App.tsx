@@ -16,6 +16,7 @@ import NotFound from "./pages/NotFound";
 import RMPortalLayout from "./pages/rm/RMPortalLayout";
 import RMDashboard from "./pages/rm/RMDashboard";
 import Customers from "./pages/rm/Customers";
+import CustomerDetail from "./pages/rm/CustomerDetail";
 import Mandates from "./pages/rm/Mandates";
 import SIPManagement from "./pages/rm/SIPManagement";
 import RMTransactions from "./pages/rm/Transactions";
@@ -45,6 +46,7 @@ const App = () => (
           <Route path="/rm-portal" element={<RMPortalLayout />}>
             <Route path="dashboard" element={<RMDashboard />} />
             <Route path="customers" element={<Customers />} />
+            <Route path="customers/:id" element={<CustomerDetail />} />
             <Route path="mandates" element={<Mandates />} />
             <Route path="sips" element={<SIPManagement />} />
             <Route path="transactions" element={<RMTransactions />} />
