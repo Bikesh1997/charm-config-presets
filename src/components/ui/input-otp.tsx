@@ -27,15 +27,27 @@ const InputOTPSlot = React.forwardRef<
 >(({ index, className, ...props }, ref) => {
   const inputOTPContext = React.useContext(OTPInputContext);
   const { char, hasFakeCaret, isActive } = inputOTPContext.slots[index];
+  const slotRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    if (index === 0 && slotRef.current) {
+      slotRef.current.focus();
+    }
+  }, [index]);
 
   return (
     <div
-      ref={ref}
+      ref={(node) => {
+        slotRef.current = node;
+        if (typeof ref === 'function') ref(node);
+        else if (ref) ref.current = node;
+      }}
       className={cn(
         "relative flex h-10 w-10 items-center justify-center border-y border-r border-input text-sm transition-all first:rounded-l-md first:border-l last:rounded-r-md",
         isActive && "z-10 ring-2 ring-ring ring-offset-background",
         className,
       )}
+      tabIndex={index === 0 ? 0 : -1}
       {...props}
     >
       {char}

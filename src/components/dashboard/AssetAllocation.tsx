@@ -8,9 +8,9 @@ interface AssetAllocationProps {
 }
 
 const COLORS = {
-  assetClass: ["hsl(var(--kotak-blue))", "hsl(217, 91%, 60%)"],
-  marketCap: ["hsl(var(--kotak-blue))", "hsl(var(--kotak-red))", "hsl(217, 91%, 60%)"],
-  sector: ["hsl(var(--kotak-blue))", "hsl(var(--kotak-red))", "hsl(217, 91%, 60%)", "hsl(142, 71%, 45%)", "hsl(173, 58%, 39%)", "hsl(210, 29%, 24%)"]
+  assetClass: ["hsl(var(--kotak-blue))", "hsl(var(--kotak-red))"],
+  marketCap: ["hsl(var(--kotak-blue))", "hsl(var(--kotak-red))", "hsl(142, 71%, 45%)"],
+  sector: ["hsl(var(--kotak-blue))", "hsl(var(--kotak-red))", "hsl(142, 71%, 45%)", "hsl(173, 58%, 39%)", "hsl(45, 93%, 47%)", "hsl(280, 65%, 60%)"]
 };
 
 export const AssetAllocation = ({ byAssetClass, byMarketCap, bySector }: AssetAllocationProps) => {

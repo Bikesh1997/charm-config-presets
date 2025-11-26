@@ -74,16 +74,16 @@ const SuccessScreen = () => {
         <div className="flex justify-center">
           <div className="relative">
             <div className="absolute inset-0 bg-kotak-success/20 rounded-full blur-2xl animate-pulse" />
-            <CheckCircle2 className="h-20 w-20 text-kotak-success relative" />
+            <CheckCircle2 className="h-16 w-16 text-kotak-success relative" />
           </div>
         </div>
 
         {/* Success Message */}
         <div className="text-center space-y-3">
-          <h1 className="text-2xl md:text-3xl font-bold text-kotak-navy">
+          <h1 className="text-xl md:text-2xl font-bold text-kotak-navy">
             Welcome to Kotak PMS!
           </h1>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-base text-muted-foreground">
             Your application has been submitted successfully
           </p>
         </div>
@@ -201,23 +201,6 @@ const SuccessScreen = () => {
             Download Summary
           </Button>
         </div>
-
-        {/* Support Info */}
-        <Card className="p-6 bg-muted/30">
-          <div className="text-sm text-center text-muted-foreground space-y-2">
-            <p>You'll receive updates via SMS, Email, and WhatsApp</p>
-            <div className="flex items-center justify-center gap-6 pt-2">
-              <a href="tel:1800-xxx-xxxx" className="flex items-center gap-1 hover:text-kotak-red transition-colors">
-                <Phone className="h-4 w-4" />
-                <span>1800-XXX-XXXX</span>
-              </a>
-              <a href="mailto:pms@kotak.com" className="flex items-center gap-1 hover:text-kotak-red transition-colors">
-                <Mail className="h-4 w-4" />
-                <span>pms@kotak.com</span>
-              </a>
-            </div>
-          </div>
-        </Card>
       </div>
     </div>
   );
