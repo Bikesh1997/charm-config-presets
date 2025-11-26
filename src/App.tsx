@@ -13,6 +13,15 @@ import Reports from "./pages/client/Reports";
 import Profile from "./pages/client/Profile";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
+import RMPortalLayout from "./pages/rm/RMPortalLayout";
+import RMDashboard from "./pages/rm/RMDashboard";
+import Customers from "./pages/rm/Customers";
+import Mandates from "./pages/rm/Mandates";
+import SIPManagement from "./pages/rm/SIPManagement";
+import RMTransactions from "./pages/rm/Transactions";
+import Documents from "./pages/rm/Documents";
+import RMReports from "./pages/rm/Reports";
+import RMSettings from "./pages/rm/Settings";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +42,16 @@ const App = () => (
             <Route path="profile" element={<Profile />} />
           </Route>
           <Route path="/admin" element={<Admin />} />
+          <Route path="/rm-portal" element={<RMPortalLayout />}>
+            <Route path="dashboard" element={<RMDashboard />} />
+            <Route path="customers" element={<Customers />} />
+            <Route path="mandates" element={<Mandates />} />
+            <Route path="sips" element={<SIPManagement />} />
+            <Route path="transactions" element={<RMTransactions />} />
+            <Route path="documents" element={<Documents />} />
+            <Route path="reports" element={<RMReports />} />
+            <Route path="settings" element={<RMSettings />} />
+          </Route>
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -26,6 +26,14 @@ const Landing = () => {
             <Button 
               variant="outline" 
               size="sm"
+              onClick={() => navigate('/rm-portal/dashboard')}
+              className="border-kotak-red text-kotak-red hover:bg-kotak-red/5"
+            >
+              Admin
+            </Button>
+            <Button 
+              variant="outline" 
+              size="sm"
               onClick={() => navigate('/client/dashboard')}
               className="border-kotak-navy text-kotak-navy hover:bg-kotak-navy/5"
             >
