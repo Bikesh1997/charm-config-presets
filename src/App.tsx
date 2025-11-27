@@ -25,13 +25,14 @@ import RMReports from "./pages/rm/Reports";
 import RMSettings from "./pages/rm/Settings";
 
 const queryClient = new QueryClient();
+const basename = import.meta.env.VITE_BASE_PATH || "/";
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename={basename}>
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/onboarding" element={<Onboarding />} />
