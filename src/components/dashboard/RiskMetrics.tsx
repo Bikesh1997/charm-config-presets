@@ -48,7 +48,10 @@ export const RiskMetrics = ({
       <CardContent>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {metrics.map((metric, index) => (
-            <div key={index} className="p-4 bg-muted/50 rounded-lg border-l-4">
+            <div
+              key={index}
+              className="p-4 bg-muted/50 rounded-lg border-l-4 border-l-red-600"
+            >
               <p className="text-sm text-muted-foreground">{metric.label}</p>
               <p className="text-2xl font-bold mt-1">{metric.value}</p>
               <p className="text-xs text-muted-foreground mt-1">

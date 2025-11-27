@@ -190,7 +190,7 @@ const Portfolio = () => {
                         {strategy.allocation}% of total portfolio
                       </CardDescription>
                     </div>
-                    <Badge variant="outline" className="text-kotak-success">
+                    <Badge variant="outline" className="text-white">
                       {strategy.returns > 0 ? "+" : ""}
                       {strategy.returns}%
                     </Badge>
