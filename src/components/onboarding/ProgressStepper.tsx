@@ -16,14 +16,15 @@ const ProgressStepper = () => {
 
   return (
     <div className="w-full">
-      <div className="flex items-center justify-between">
-        {steps.map((label, index) => {
-          const stepNumber = index + 1;
-          const isCompletedOrCurrent = currentStep >= stepNumber;
-          
-          return (
-            <React.Fragment key={stepNumber}>
-              <div className="flex flex-col items-center gap-2">
+      <div className="flex flex-col gap-2">
+        {/* Circles and connecting lines row */}
+        <div className="flex items-center justify-between">
+          {steps.map((label, index) => {
+            const stepNumber = index + 1;
+            const isCompletedOrCurrent = currentStep >= stepNumber;
+            
+            return (
+              <React.Fragment key={stepNumber}>
                 <div
                   className={cn(
                     "w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium transition-all duration-300",
@@ -34,6 +35,30 @@ const ProgressStepper = () => {
                 >
                   {stepNumber}
                 </div>
+                
+                {index < steps.length - 1 && (
+                  <div 
+                    className={cn(
+                      "h-0.5 flex-1 mx-2 transition-all duration-300",
+                      currentStep > stepNumber
+                        ? "bg-kotak-red"
+                        : "bg-gray-200"
+                    )}
+                  />
+                )}
+              </React.Fragment>
+            );
+          })}
+        </div>
+        
+        {/* Labels row */}
+        <div className="flex justify-between">
+          {steps.map((label, index) => {
+            const stepNumber = index + 1;
+            const isCompletedOrCurrent = currentStep >= stepNumber;
+            
+            return (
+              <div key={stepNumber} className="flex-1 flex justify-center">
                 <span 
                   className={cn(
                     "text-xs transition-colors duration-300 whitespace-nowrap",
@@ -45,20 +70,9 @@ const ProgressStepper = () => {
                   {label}
                 </span>
               </div>
-              
-              {index < steps.length - 1 && (
-                <div 
-                  className={cn(
-                    "h-0.5 flex-1 mx-2 transition-all duration-300",
-                    currentStep > stepNumber
-                      ? "bg-kotak-red"
-                      : "bg-gray-200"
-                  )}
-                />
-              )}
-            </React.Fragment>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </div>
   );
