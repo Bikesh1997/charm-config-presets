@@ -32,26 +32,31 @@ export const TopSummary = ({
       title: "Portfolio Value",
       value: formatCurrency(currentValue),
       icon: Wallet,
-      color: "text-kotak-blue"
+      iconColor: "text-blue-600",
+      borderColor: "border-l-blue-600"
     },
     {
       title: "Net Contribution",
       value: formatCurrency(netContribution),
       icon: TrendingUp,
-      color: "text-kotak-blue"
+      iconColor: "text-purple-600",
+      borderColor: "border-l-purple-600"
     },
     {
       title: "Net Gain",
       value: formatCurrency(netGain),
       subtitle: `${netGainPercent.toFixed(2)}%`,
       icon: netGain >= 0 ? TrendingUp : TrendingDown,
-      color: netGain >= 0 ? "text-green-600" : "text-red-600"
+      iconColor: netGain >= 0 ? "text-green-600" : "text-red-600",
+      borderColor: netGain >= 0 ? "border-l-green-600" : "border-l-red-600",
+      subtitleColor: netGain >= 0 ? "text-green-600" : "text-red-600"
     },
     {
       title: "XIRR",
       value: `${xirr}%`,
       icon: Target,
-      color: "text-kotak-red"
+      iconColor: "text-orange-600",
+      borderColor: "border-l-orange-600"
     }
   ];
 
@@ -59,19 +64,22 @@ export const TopSummary = ({
     <div className="space-y-4">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {summaryCards.map((card, index) => (
-          <Card key={index}>
+          <Card 
+            key={index} 
+            className={`border-l-4 ${card.borderColor} transition-all duration-300 hover:shadow-lg hover:-translate-y-1`}
+          >
             <CardContent className="p-6">
               <div className="flex items-start justify-between">
                 <div>
                   <p className="text-sm text-muted-foreground">{card.title}</p>
-                  <h3 className="text-2xl font-bold mt-2">{card.value}</h3>
+                  <h3 className="text-2xl font-bold mt-2 text-kotak-blue">{card.value}</h3>
                   {card.subtitle && (
-                    <p className={`text-sm font-semibold mt-1 ${card.color}`}>
+                    <p className={`text-sm font-semibold mt-1 ${card.subtitleColor}`}>
                       {card.subtitle}
                     </p>
                   )}
                 </div>
-                <card.icon className={`h-8 w-8 ${card.color}`} />
+                <card.icon className={`h-8 w-8 ${card.iconColor}`} />
               </div>
             </CardContent>
           </Card>
