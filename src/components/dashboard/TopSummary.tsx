@@ -24,7 +24,7 @@ export const TopSummary = ({
   benchmark
 }: TopSummaryProps) => {
   const formatCurrency = (value: number) => {
-    return `₹${(value / 100000).toFixed(2)}L`;
+    return `₹${(value / 10000000).toFixed(2)}Cr`;
   };
 
   const summaryCards = [

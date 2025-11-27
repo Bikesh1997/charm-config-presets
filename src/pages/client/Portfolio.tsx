@@ -73,7 +73,7 @@ const Portfolio = () => {
                     <div>
                       <p className="text-sm text-muted-foreground">Gains</p>
                       <p className="text-xl font-bold text-kotak-success">
-                        ₹{((strategy.current - strategy.invested) / 100000).toFixed(2)} L
+                        ₹{((strategy.current - strategy.invested) / 10000000).toFixed(2)} Cr
                       </p>
                     </div>
                   </div>
@@ -157,7 +157,7 @@ const Portfolio = () => {
                       />
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      ₹{(sector.value / 100000).toFixed(2)} L
+                      ₹{(sector.value / 10000000).toFixed(2)} Cr
                     </p>
                   </div>
                 ))}
