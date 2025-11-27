@@ -8,13 +8,13 @@ interface AssetAllocationProps {
 }
 
 const COLORS = {
-  assetClass: ["hsl(210, 90%, 65%)", "hsl(340, 80%, 70%)"],
-  marketCap: ["hsl(210, 90%, 65%)", "hsl(340, 80%, 70%)", "hsl(160, 70%, 60%)"],
+  assetClass: ["hsl(45, 85%, 65%)", "hsl(340, 80%, 70%)"],
+  marketCap: ["hsl(45, 85%, 65%)", "hsl(340, 80%, 70%)", "hsl(160, 70%, 60%)"],
   sector: [
-    "hsl(210, 85%, 65%)",           // Light blue
+    "hsl(45, 85%, 65%)",            // Light yellow
     "hsl(340, 75%, 68%)",           // Light coral red
     "hsl(160, 65%, 55%)",           // Light teal green
-    "hsl(200, 80%, 60%)",           // Sky blue
+    "hsl(170, 75%, 60%)",           // Mint green
     "hsl(35, 85%, 65%)",            // Light orange
     "hsl(270, 70%, 70%)"            // Light purple
   ]
@@ -87,7 +87,7 @@ export const AssetAllocation = ({ byAssetClass, byMarketCap, bySector }: AssetAl
               <XAxis type="number" unit="%" />
               <YAxis dataKey="sector" type="category" width={100} />
               <Tooltip formatter={(value) => `${value}%`} />
-              <Bar dataKey="percent" fill="hsl(210, 85%, 65%)">
+              <Bar dataKey="percent" fill="hsl(45, 85%, 65%)">
                 {bySector.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={COLORS.sector[index % COLORS.sector.length]} />
                 ))}
