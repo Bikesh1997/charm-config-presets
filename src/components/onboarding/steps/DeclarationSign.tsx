@@ -69,7 +69,7 @@ const DeclarationSign = () => {
   }, [otp, showOTP]);
 
   return (
-    <div className="space-y-8 animate-fade-in">
+    <div className="animate-fade-in">
       <div className="w-[400px] mx-auto">
       {/* Combined Single Card */}
       <Card className="p-6 space-y-6">

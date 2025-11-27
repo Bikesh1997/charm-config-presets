@@ -81,7 +81,7 @@ const PANDetails = () => {
   };
 
   return (
-    <div className="space-y-8 animate-fade-in">
+    <div className="animate-fade-in">
       <div className="w-[400px] mx-auto space-y-6">
         {/* Full Name */}
         <div className="space-y-2">
