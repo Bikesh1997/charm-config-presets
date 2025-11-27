@@ -7,17 +7,20 @@ import { Download, TrendingUp, TrendingDown } from "lucide-react";
 
 const Portfolio = () => {
   const holdings = [
-    { name: "Reliance Industries", quantity: 150, avgPrice: 2450, currentPrice: 2580, value: 387000, returns: 5.31, type: "Equity" },
-    { name: "HDFC Bank", quantity: 200, avgPrice: 1620, currentPrice: 1650, value: 330000, returns: 1.85, type: "Equity" },
-    { name: "TCS", quantity: 100, avgPrice: 3450, currentPrice: 3520, value: 352000, returns: 2.03, type: "Equity" },
-    { name: "Infosys", quantity: 120, avgPrice: 1550, currentPrice: 1580, value: 189600, returns: 1.94, type: "Equity" },
-    { name: "ICICI Bank", quantity: 180, avgPrice: 920, currentPrice: 950, value: 171000, returns: 3.26, type: "Equity" },
+    { name: "HDFC Bank", quantity: 1284, avgPrice: 1445, currentPrice: 1660, value: 2131440, returns: 14.9, type: "Equity" },
+    { name: "ICICI Bank", quantity: 1051, avgPrice: 960, currentPrice: 1125, value: 1182375, returns: 17.2, type: "Equity" },
+    { name: "Infosys", quantity: 875, avgPrice: 1390, currentPrice: 1675, value: 1465625, returns: 20.5, type: "Equity" },
+    { name: "TCS", quantity: 467, avgPrice: 3320, currentPrice: 3825, value: 1786275, returns: 15.2, type: "Equity" },
+    { name: "Dr. Reddy's", quantity: 292, avgPrice: 5150, currentPrice: 6070, value: 1772440, returns: 17.9, type: "Equity" },
+    { name: "Aurobindo Pharma", quantity: 817, avgPrice: 930, currentPrice: 1025, value: 837425, returns: 10.2, type: "Equity" },
+    { name: "Maruti Suzuki", quantity: 175, avgPrice: 9300, currentPrice: 11150, value: 1951250, returns: 19.9, type: "Equity" },
+    { name: "Eicher Motors", quantity: 233, avgPrice: 3250, currentPrice: 3940, value: 918020, returns: 21.3, type: "Equity" },
+    { name: "Asian Paints", quantity: 408, avgPrice: 2850, currentPrice: 3290, value: 1342320, returns: 15.4, type: "Equity" },
+    { name: "Avenue Supermarts (DMart)", quantity: 175, avgPrice: 3510, currentPrice: 4050, value: 708750, returns: 15.4, type: "Equity" },
   ];
 
   const strategies = [
-    { name: "Equity Refinement Strategy (ERS)", invested: 15000000, current: 17250000, returns: 15.0, allocation: 48 },
-    { name: "Dynamic Delta Diversification (DDD+)", invested: 12000000, current: 13440000, returns: 12.0, allocation: 37 },
-    { name: "Fixed Income Strategy", invested: 5000000, current: 5350000, returns: 7.0, allocation: 15 },
+    { name: "Kotak Focused Equity PMS", invested: 12200000, current: 15000000, returns: 22.95, allocation: 100 },
   ];
 
   return (
@@ -135,11 +138,12 @@ const Portfolio = () => {
             <CardContent>
               <div className="space-y-4">
                 {[
-                  { sector: "Information Technology", percentage: 28, value: 8960000 },
-                  { sector: "Financial Services", percentage: 25, value: 8000000 },
-                  { sector: "Oil & Gas", percentage: 18, value: 5760000 },
-                  { sector: "Consumer Goods", percentage: 15, value: 4800000 },
-                  { sector: "Others", percentage: 14, value: 4480000 },
+                  { sector: "Financials", percentage: 32, value: 4800000 },
+                  { sector: "IT", percentage: 18, value: 2700000 },
+                  { sector: "Automobile", percentage: 14, value: 2100000 },
+                  { sector: "Pharma", percentage: 12, value: 1800000 },
+                  { sector: "Consumer", percentage: 10, value: 1500000 },
+                  { sector: "Others", percentage: 14, value: 2100000 },
                 ].map((sector) => (
                   <div key={sector.sector} className="space-y-2">
                     <div className="flex items-center justify-between">
