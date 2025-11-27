@@ -18,6 +18,15 @@ const Onboarding = () => {
   const { currentStep, resetForm, goToPreviousStep, goToNextStep, setCurrentStep } = useOnboardingStore();
   const [showOverview, setShowOverview] = useState(currentStep === 1);
 
+  const stepTitles: Record<number, string> = {
+    1: "Mobile Verification",
+    2: "PAN Details",
+    3: "Aadhaar number",
+    4: "Income Details",
+    5: "Set Your Investment Goal",
+    6: "Declaration and E-Signature"
+  };
+
   const handleBack = () => {
     goToPreviousStep();
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -82,30 +91,29 @@ const Onboarding = () => {
         <ProgressStepper />
         
         <div className="mt-8 bg-card rounded-xl shadow-lg p-6 md:p-10">
-          <div className="flex items-start gap-4 mb-8">
-            {currentStep > 1 && (
+          {/* Title Row - Back button + Title aligned on same line */}
+          {currentStep > 1 && (
+            <div className="flex items-center gap-4 mb-8">
               <Button
                 variant="ghost"
                 size="icon"
                 onClick={handleBack}
-                className="mt-1 flex-shrink-0"
+                className="flex-shrink-0"
               >
                 <ArrowLeft className="h-5 w-5" />
               </Button>
-            )}
-            
-            <div className="flex-1 min-w-0">
-              {renderStep()}
+              <h2 className="text-2xl font-bold text-kotak-navy">{stepTitles[currentStep]}</h2>
             </div>
+          )}
+          
+          {/* Step Content - Form fields only */}
+          <div>
+            {renderStep()}
           </div>
           
+          {/* Navigation Buttons */}
           {currentStep !== 1 && currentStep !== 6 && (
-            <div className="flex gap-4">
-              <div className="flex-shrink-0 w-[40px]"></div>
-              <div className="flex-1 min-w-0">
-                <NavigationButtons />
-              </div>
-            </div>
+            <NavigationButtons />
           )}
         </div>
       </div>

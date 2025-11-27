@@ -23,10 +23,6 @@ const AadhaarNumber = () => {
 
   return (
     <div className="space-y-8 animate-fade-in">
-      <div className="text-left max-w-xl mx-auto">
-        <h2 className="text-2xl font-bold text-kotak-navy">Aadhaar number</h2>
-      </div>
-
       <div className="w-[400px] mx-auto space-y-3">
           <label className="text-sm font-medium text-foreground">
             Aadhaar Number

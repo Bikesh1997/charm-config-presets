@@ -37,10 +37,6 @@ const AnnualIncome = () => {
 
   return (
     <div className="space-y-8 animate-fade-in">
-      <div className="text-left max-w-xl mx-auto">
-        <h2 className="text-2xl font-bold text-kotak-navy">Income Details</h2>
-      </div>
-
       <div className="max-w-2xl mx-auto">
         <div className="grid grid-cols-2 gap-3">
         {incomeRanges.map((range) => (
