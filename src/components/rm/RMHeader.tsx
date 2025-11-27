@@ -13,13 +13,13 @@ import {
 
 export const RMHeader = () => {
   return (
-    <header className="h-16 bg-card border-b border-border sticky top-0 z-40 flex items-center px-6">
-      <div className="flex items-center gap-2">
+    <header className="h-16 bg-card border-b border-border sticky top-0 z-40 flex items-center justify-between px-6 gap-6">
+      <div className="flex items-center">
         <img src={kotakLogo} alt="Kotak PMS" className="h-8" />
       </div>
 
-      <div className="flex-1 flex items-center justify-center px-8">
-        <div className="relative w-full max-w-md">
+      <div className="flex-1 max-w-2xl">
+        <div className="relative">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
             placeholder="Search customers, mandates, SIPs..."
