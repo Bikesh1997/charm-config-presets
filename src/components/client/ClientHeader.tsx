@@ -49,7 +49,9 @@ export const ClientHeader = () => {
               <DropdownMenuContent align="end" className="w-56">
                 <div className="px-2 py-1.5">
                   <p className="font-semibold">Rahul Sharma</p>
-                  <p className="text-xs text-muted-foreground">rahul.sharma@email.com</p>
+                  <p className="text-xs text-muted-foreground">
+                    rahul.sharma@email.com
+                  </p>
                 </div>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>

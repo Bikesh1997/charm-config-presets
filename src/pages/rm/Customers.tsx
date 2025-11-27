@@ -26,12 +26,66 @@ const Customers = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const customers = [
-    { id: 1, name: "Rajesh Sharma", aum: "₹45 Cr", strategy: "Large Cap", returns: "+18.5%", risk: "Medium", status: "Active", lastContact: "2 days ago" },
-    { id: 2, name: "Priya Patel", aum: "₹38 Cr", strategy: "Multi Cap", returns: "+22.1%", risk: "High", status: "Active", lastContact: "1 week ago" },
-    { id: 3, name: "Amit Verma", aum: "₹32 Cr", strategy: "Debt", returns: "+15.8%", risk: "Low", status: "Active", lastContact: "3 days ago" },
-    { id: 4, name: "Sunita Reddy", aum: "₹28 Cr", strategy: "Balanced", returns: "+19.3%", risk: "Medium", status: "Active", lastContact: "5 days ago" },
-    { id: 5, name: "Vikram Singh", aum: "₹25 Cr", strategy: "Large Cap", returns: "+16.7%", risk: "Medium", status: "Active", lastContact: "1 day ago" },
-    { id: 6, name: "Neha Gupta", aum: "₹22 Cr", strategy: "Multi Cap", returns: "+20.4%", risk: "High", status: "KYC Pending", lastContact: "2 weeks ago" },
+    {
+      id: 1,
+      name: "Rajesh Sharma",
+      aum: "₹45 Cr",
+      strategy: "Large Cap",
+      returns: "+18.5%",
+      risk: "Medium",
+      status: "Active",
+      lastContact: "2 days ago",
+    },
+    {
+      id: 2,
+      name: "Priya Patel",
+      aum: "₹38 Cr",
+      strategy: "Multi Cap",
+      returns: "+22.1%",
+      risk: "High",
+      status: "Active",
+      lastContact: "1 week ago",
+    },
+    {
+      id: 3,
+      name: "Amit Verma",
+      aum: "₹32 Cr",
+      strategy: "Debt",
+      returns: "+15.8%",
+      risk: "Low",
+      status: "Active",
+      lastContact: "3 days ago",
+    },
+    {
+      id: 4,
+      name: "Sunita Reddy",
+      aum: "₹28 Cr",
+      strategy: "Balanced",
+      returns: "+19.3%",
+      risk: "Medium",
+      status: "Active",
+      lastContact: "5 days ago",
+    },
+    {
+      id: 5,
+      name: "Vikram Singh",
+      aum: "₹25 Cr",
+      strategy: "Large Cap",
+      returns: "+16.7%",
+      risk: "Medium",
+      status: "Active",
+      lastContact: "1 day ago",
+    },
+    {
+      id: 6,
+      name: "Neha Gupta",
+      aum: "₹22 Cr",
+      strategy: "Multi Cap",
+      returns: "+20.4%",
+      risk: "High",
+      status: "KYC Pending",
+      lastContact: "2 weeks ago",
+    },
   ];
 
   return (
@@ -40,10 +94,11 @@ const Customers = () => {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold text-kotak-navy flex items-center gap-2">
-            <Users className="h-8 w-8 text-kotak-red" />
             Customer 360° Management
           </h1>
-          <p className="text-muted-foreground">Manage all PMS customers and their portfolios</p>
+          <p className="text-muted-foreground">
+            Manage all PMS customers and their portfolios
+          </p>
         </div>
         <Button className="bg-kotak-red hover:bg-kotak-red/90">
           + Add New Customer
@@ -52,33 +107,41 @@ const Customers = () => {
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <Card>
+        <Card className="border-l-2 border-l-kotak-navy">
           <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium text-muted-foreground">Total Customers</CardTitle>
+            <CardTitle className="text-sm font-medium text-muted-foreground">
+              Total Customers
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-3xl font-bold text-kotak-navy">284</p>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="border-l-2 border-l-green-600">
           <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium text-muted-foreground">Active Portfolios</CardTitle>
+            <CardTitle className="text-sm font-medium text-muted-foreground">
+              Active Portfolios
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-3xl font-bold text-green-600">243</p>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="border-l-2 border-l-orange-600">
           <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium text-muted-foreground">KYC Pending</CardTitle>
+            <CardTitle className="text-sm font-medium text-muted-foreground">
+              KYC Pending
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-3xl font-bold text-orange-600">8</p>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="border-l-2 border-l-blue-600">
           <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium text-muted-foreground">Onboarding</CardTitle>
+            <CardTitle className="text-sm font-medium text-muted-foreground">
+              Onboarding
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-3xl font-bold text-blue-600">12</p>
@@ -162,25 +225,42 @@ const Customers = () => {
               </TableHeader>
               <TableBody>
                 {customers.map((customer) => (
-                  <TableRow key={customer.id} className="cursor-pointer hover:bg-muted/50">
-                    <TableCell className="font-medium">{customer.name}</TableCell>
-                    <TableCell className="font-bold text-kotak-navy">{customer.aum}</TableCell>
+                  <TableRow
+                    key={customer.id}
+                    className="cursor-pointer hover:bg-muted/50"
+                  >
+                    <TableCell className="font-medium">
+                      {customer.name}
+                    </TableCell>
+                    <TableCell className="font-bold text-kotak-navy">
+                      {customer.aum}
+                    </TableCell>
                     <TableCell>{customer.strategy}</TableCell>
-                    <TableCell className="text-green-600 font-medium">{customer.returns}</TableCell>
+                    <TableCell className="text-green-600 font-medium">
+                      {customer.returns}
+                    </TableCell>
                     <TableCell>
                       <Badge variant="outline">{customer.risk}</Badge>
                     </TableCell>
                     <TableCell>
-                      <Badge variant={customer.status === "Active" ? "default" : "secondary"}>
+                      <Badge
+                        variant={
+                          customer.status === "Active" ? "default" : "secondary"
+                        }
+                      >
                         {customer.status}
                       </Badge>
                     </TableCell>
-                    <TableCell className="text-muted-foreground">{customer.lastContact}</TableCell>
+                    <TableCell className="text-muted-foreground">
+                      {customer.lastContact}
+                    </TableCell>
                     <TableCell className="text-right">
                       <Button
                         size="sm"
                         variant="ghost"
-                        onClick={() => navigate(`/rm-portal/customers/${customer.id}`)}
+                        onClick={() =>
+                          navigate(`/rm-portal/customers/${customer.id}`)
+                        }
                       >
                         <Eye className="h-4 w-4 mr-1" />
                         View

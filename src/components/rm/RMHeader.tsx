@@ -15,7 +15,7 @@ export const RMHeader = () => {
   return (
     <header className="h-16 bg-card border-b border-border sticky top-0 z-40 flex items-center justify-between">
       <div className="flex items-center pl-6">
-        <img src={kotakLogo} alt="Kotak PMS" className="h-8" />
+        <p className="text-l font-bold text-muted-foreground mt-2">RM Portal</p>
       </div>
 
       <div className="flex-1 max-w-2xl px-6">
@@ -45,7 +45,9 @@ export const RMHeader = () => {
           <DropdownMenuContent align="end" className="w-56">
             <div className="px-2 py-1.5">
               <p className="font-semibold">Amit Kumar</p>
-              <p className="text-xs text-muted-foreground">Relationship Manager</p>
+              <p className="text-xs text-muted-foreground">
+                Relationship Manager
+              </p>
             </div>
             <DropdownMenuSeparator />
             <DropdownMenuItem>

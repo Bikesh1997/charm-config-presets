@@ -28,7 +28,17 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { FileText, Plus, Pause, Play, Edit, XCircle, CheckCircle2, Clock, AlertCircle } from "lucide-react";
+import {
+  FileText,
+  Plus,
+  Pause,
+  Play,
+  Edit,
+  XCircle,
+  CheckCircle2,
+  Clock,
+  AlertCircle,
+} from "lucide-react";
 
 const Mandates = () => {
   const { toast } = useToast();
@@ -39,7 +49,9 @@ const Mandates = () => {
   const [selectedMandate, setSelectedMandate] = useState<any>(null);
 
   const handleAction = (action: string, customer: string) => {
-    setActionMessage(`${action} for ${customer} has been initiated successfully`);
+    setActionMessage(
+      `${action} for ${customer} has been initiated successfully`
+    );
     setConfirmDialog(true);
   };
 
@@ -77,30 +89,87 @@ const Mandates = () => {
   };
 
   const mandates = [
-    { id: 1, customer: "Rajesh Sharma", type: "Monthly SIP", amount: "₹2,00,000", frequency: "Monthly", status: "Active", nextDebit: "01-Feb-2025", bank: "HDFC Bank" },
-    { id: 2, customer: "Priya Patel", type: "Quarterly SIP", amount: "₹5,00,000", frequency: "Quarterly", status: "Active", nextDebit: "15-Mar-2025", bank: "ICICI Bank" },
-    { id: 3, customer: "Amit Verma", type: "Monthly SIP", amount: "₹1,50,000", frequency: "Monthly", status: "Pending", nextDebit: "05-Feb-2025", bank: "Axis Bank" },
-    { id: 4, customer: "Sunita Reddy", type: "One-time", amount: "₹50,00,000", frequency: "One-time", status: "Completed", nextDebit: "-", bank: "SBI" },
-    { id: 5, customer: "Vikram Singh", type: "Monthly SIP", amount: "₹3,00,000", frequency: "Monthly", status: "Failed", nextDebit: "28-Jan-2025", bank: "Kotak Bank" },
+    {
+      id: 1,
+      customer: "Rajesh Sharma",
+      type: "Monthly SIP",
+      amount: "₹2,00,000",
+      frequency: "Monthly",
+      status: "Active",
+      nextDebit: "01-Feb-2025",
+      bank: "HDFC Bank",
+    },
+    {
+      id: 2,
+      customer: "Priya Patel",
+      type: "Quarterly SIP",
+      amount: "₹5,00,000",
+      frequency: "Quarterly",
+      status: "Active",
+      nextDebit: "15-Mar-2025",
+      bank: "ICICI Bank",
+    },
+    {
+      id: 3,
+      customer: "Amit Verma",
+      type: "Monthly SIP",
+      amount: "₹1,50,000",
+      frequency: "Monthly",
+      status: "Pending",
+      nextDebit: "05-Feb-2025",
+      bank: "Axis Bank",
+    },
+    {
+      id: 4,
+      customer: "Sunita Reddy",
+      type: "One-time",
+      amount: "₹50,00,000",
+      frequency: "One-time",
+      status: "Completed",
+      nextDebit: "-",
+      bank: "SBI",
+    },
+    {
+      id: 5,
+      customer: "Vikram Singh",
+      type: "Monthly SIP",
+      amount: "₹3,00,000",
+      frequency: "Monthly",
+      status: "Failed",
+      nextDebit: "28-Jan-2025",
+      bank: "Kotak Bank",
+    },
   ];
 
   const getStatusIcon = (status: string) => {
     switch (status) {
-      case "Active": return <CheckCircle2 className="h-4 w-4" />;
-      case "Pending": return <Clock className="h-4 w-4" />;
-      case "Failed": return <XCircle className="h-4 w-4" />;
-      case "Completed": return <CheckCircle2 className="h-4 w-4" />;
-      default: return <AlertCircle className="h-4 w-4" />;
+      case "Active":
+        return <CheckCircle2 className="h-4 w-4" />;
+      case "Pending":
+        return <Clock className="h-4 w-4" />;
+      case "Failed":
+        return <XCircle className="h-4 w-4" />;
+      case "Completed":
+        return <CheckCircle2 className="h-4 w-4" />;
+      default:
+        return <AlertCircle className="h-4 w-4" />;
     }
   };
 
-  const getStatusVariant = (status: string): "default" | "secondary" | "destructive" | "outline" => {
+  const getStatusVariant = (
+    status: string
+  ): "default" | "secondary" | "destructive" | "outline" => {
     switch (status) {
-      case "Active": return "default";
-      case "Pending": return "secondary";
-      case "Failed": return "destructive";
-      case "Completed": return "outline";
-      default: return "secondary";
+      case "Active":
+        return "default";
+      case "Pending":
+        return "secondary";
+      case "Failed":
+        return "destructive";
+      case "Completed":
+        return "outline";
+      default:
+        return "secondary";
     }
   };
 
@@ -110,33 +179,47 @@ const Mandates = () => {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold text-kotak-navy flex items-center gap-2">
-            <FileText className="h-8 w-8 text-kotak-red" />
             Mandate Management
           </h1>
-          <p className="text-muted-foreground">Create, track, and manage PMS mandates & e-mandates</p>
+          <p className="text-muted-foreground">
+            Create, track, and manage PMS mandates & e-mandates
+          </p>
         </div>
-        <Button className="bg-kotak-red hover:bg-kotak-red/90" onClick={handleCreate}>
+        <Button
+          className="bg-kotak-red hover:bg-kotak-red/90"
+          onClick={handleCreate}
+        >
           <Plus className="h-4 w-4 mr-2" />
           Create New Mandate
         </Button>
         <Dialog open={open} onOpenChange={handleClose}>
           <DialogContent className="max-w-2xl">
             <DialogHeader>
-              <DialogTitle>{editMode ? 'Edit Mandate' : 'Create New Mandate'}</DialogTitle>
+              <DialogTitle>
+                {editMode ? "Edit Mandate" : "Create New Mandate"}
+              </DialogTitle>
               <DialogDescription>
-                {editMode ? 'Update the payment mandate details' : 'Set up a new payment mandate for PMS investment'}
+                {editMode
+                  ? "Update the payment mandate details"
+                  : "Set up a new payment mandate for PMS investment"}
               </DialogDescription>
             </DialogHeader>
             <div className="space-y-4 py-4">
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>Customer</Label>
-                  <Select defaultValue={editMode ? selectedMandate?.customer : undefined}>
+                  <Select
+                    defaultValue={
+                      editMode ? selectedMandate?.customer : undefined
+                    }
+                  >
                     <SelectTrigger>
                       <SelectValue placeholder="Select customer" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="Rajesh Sharma">Rajesh Sharma</SelectItem>
+                      <SelectItem value="Rajesh Sharma">
+                        Rajesh Sharma
+                      </SelectItem>
                       <SelectItem value="Priya Patel">Priya Patel</SelectItem>
                       <SelectItem value="Amit Verma">Amit Verma</SelectItem>
                       <SelectItem value="Sunita Reddy">Sunita Reddy</SelectItem>
@@ -146,15 +229,23 @@ const Mandates = () => {
                 </div>
                 <div className="space-y-2">
                   <Label>Mandate Type</Label>
-                  <Select defaultValue={editMode ? selectedMandate?.type : undefined}>
+                  <Select
+                    defaultValue={editMode ? selectedMandate?.type : undefined}
+                  >
                     <SelectTrigger>
                       <SelectValue placeholder="Select type" />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="Monthly SIP">Monthly SIP</SelectItem>
-                      <SelectItem value="Quarterly SIP">Quarterly SIP</SelectItem>
-                      <SelectItem value="One-time">One-time Lump Sum</SelectItem>
-                      <SelectItem value="Ad-hoc Top-up">Ad-hoc Top-up</SelectItem>
+                      <SelectItem value="Quarterly SIP">
+                        Quarterly SIP
+                      </SelectItem>
+                      <SelectItem value="One-time">
+                        One-time Lump Sum
+                      </SelectItem>
+                      <SelectItem value="Ad-hoc Top-up">
+                        Ad-hoc Top-up
+                      </SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -162,10 +253,10 @@ const Mandates = () => {
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>Amount</Label>
-                  <Input 
-                    type="text" 
-                    placeholder="Enter amount" 
-                    defaultValue={editMode ? selectedMandate?.amount : ''}
+                  <Input
+                    type="text"
+                    placeholder="Enter amount"
+                    defaultValue={editMode ? selectedMandate?.amount : ""}
                   />
                 </div>
                 <div className="space-y-2">
@@ -185,24 +276,39 @@ const Mandates = () => {
               </div>
               <div className="space-y-2">
                 <Label>Bank Account</Label>
-                <Select defaultValue={editMode ? selectedMandate?.bank : undefined}>
+                <Select
+                  defaultValue={editMode ? selectedMandate?.bank : undefined}
+                >
                   <SelectTrigger>
                     <SelectValue placeholder="Select bank account" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="HDFC Bank">HDFC Bank - ****4567</SelectItem>
-                    <SelectItem value="ICICI Bank">ICICI Bank - ****8901</SelectItem>
-                    <SelectItem value="Axis Bank">Axis Bank - ****2345</SelectItem>
+                    <SelectItem value="HDFC Bank">
+                      HDFC Bank - ****4567
+                    </SelectItem>
+                    <SelectItem value="ICICI Bank">
+                      ICICI Bank - ****8901
+                    </SelectItem>
+                    <SelectItem value="Axis Bank">
+                      Axis Bank - ****2345
+                    </SelectItem>
                     <SelectItem value="SBI">SBI - ****6789</SelectItem>
-                    <SelectItem value="Kotak Bank">Kotak Bank - ****3456</SelectItem>
+                    <SelectItem value="Kotak Bank">
+                      Kotak Bank - ****3456
+                    </SelectItem>
                   </SelectContent>
                 </Select>
               </div>
             </div>
             <div className="flex justify-end gap-3">
-              <Button variant="outline" onClick={handleClose}>Cancel</Button>
-              <Button className="bg-kotak-red hover:bg-kotak-red/90" onClick={handleSubmit}>
-                {editMode ? 'Update Mandate' : 'Create Mandate'}
+              <Button variant="outline" onClick={handleClose}>
+                Cancel
+              </Button>
+              <Button
+                className="bg-kotak-red hover:bg-kotak-red/90"
+                onClick={handleSubmit}
+              >
+                {editMode ? "Update Mandate" : "Create Mandate"}
               </Button>
             </div>
           </DialogContent>
@@ -211,33 +317,41 @@ const Mandates = () => {
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <Card>
+        <Card className="border-l-2 border-l-green-600">
           <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium text-muted-foreground">Active Mandates</CardTitle>
+            <CardTitle className="text-sm font-medium text-muted-foreground">
+              Active Mandates
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-3xl font-bold text-green-600">156</p>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="border-l-2 border-l-orange-600">
           <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium text-muted-foreground">Pending Approval</CardTitle>
+            <CardTitle className="text-sm font-medium text-muted-foreground">
+              Pending Approval
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-3xl font-bold text-orange-600">23</p>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="border-l-2 border-l-red-600">
           <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium text-muted-foreground">Failed/Rejected</CardTitle>
+            <CardTitle className="text-sm font-medium text-muted-foreground">
+              Failed/Rejected
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-3xl font-bold text-red-600">5</p>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="border-l-2 border-l-kotak-navy">
           <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium text-muted-foreground">Total Monthly Flow</CardTitle>
+            <CardTitle className="text-sm font-medium text-muted-foreground">
+              Total Monthly Flow
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-3xl font-bold text-kotak-navy">₹45 Cr</p>
@@ -267,40 +381,51 @@ const Mandates = () => {
             <TableBody>
               {mandates.map((mandate) => (
                 <TableRow key={mandate.id}>
-                  <TableCell className="font-medium">{mandate.customer}</TableCell>
+                  <TableCell className="font-medium">
+                    {mandate.customer}
+                  </TableCell>
                   <TableCell>{mandate.type}</TableCell>
-                  <TableCell className="font-bold text-kotak-navy">{mandate.amount}</TableCell>
+                  <TableCell className="font-bold text-kotak-navy">
+                    {mandate.amount}
+                  </TableCell>
                   <TableCell>{mandate.frequency}</TableCell>
                   <TableCell>{mandate.bank}</TableCell>
                   <TableCell>{mandate.nextDebit}</TableCell>
                   <TableCell>
-                    <Badge variant={getStatusVariant(mandate.status)} className="flex items-center gap-1 w-fit">
+                    <Badge
+                      variant={getStatusVariant(mandate.status)}
+                      className="flex items-center gap-1 w-fit"
+                    >
                       {getStatusIcon(mandate.status)}
                       {mandate.status}
                     </Badge>
                   </TableCell>
-                   <TableCell className="text-right">
+                  <TableCell className="text-right">
                     <div className="flex items-center justify-end gap-2">
                       {mandate.status === "Active" && (
-                        <Button 
-                          size="sm" 
+                        <Button
+                          size="sm"
                           variant="ghost"
-                          onClick={() => handleAction("Pause mandate", mandate.customer)}
+                          onClick={() =>
+                            handleAction("Pause mandate", mandate.customer)
+                          }
                         >
                           <Pause className="h-4 w-4" />
                         </Button>
                       )}
                       {mandate.status === "Pending" && (
-                        <Button 
-                          size="sm" 
+                        <Button
+                          size="sm"
                           variant="ghost"
-                          onClick={() => handleAction("Activate mandate", mandate.customer)}
+                          onClick={() =>
+                            handleAction("Activate mandate", mandate.customer)
+                          }
                         >
                           <Play className="h-4 w-4" />
                         </Button>
                       )}
-                      <Button 
-                        size="sm" 
+                      <Button
+                        size="sm"
                         variant="ghost"
                         onClick={() => handleEdit(mandate)}
                       >

@@ -119,8 +119,10 @@ const RMDashboard = () => {
     <div className="p-6 space-y-6">
       {/* Page Header */}
       <div>
-        <h1 className="text-2xl font-bold text-kotak-navy">RM Dashboard</h1>
-        <p className="text-sm text-muted-foreground">
+        <h1 className="text-3xl font-bold text-kotak-navy flex items-center gap-2">
+          RM Dashboard
+        </h1>
+        <p className="text-muted-foreground">
           Welcome back! Here's your portfolio overview
         </p>
       </div>

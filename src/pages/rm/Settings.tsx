@@ -3,7 +3,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
-import { Settings as SettingsIcon, Bell, User, Mail, Shield } from "lucide-react";
+import {
+  Settings as SettingsIcon,
+  Bell,
+  User,
+  Mail,
+  Shield,
+} from "lucide-react";
 
 const Settings = () => {
   return (
@@ -11,10 +17,11 @@ const Settings = () => {
       {/* Page Header */}
       <div>
         <h1 className="text-3xl font-bold text-kotak-navy flex items-center gap-2">
-          <SettingsIcon className="h-8 w-8 text-kotak-red" />
           Settings
         </h1>
-        <p className="text-muted-foreground">Manage your RM portal preferences and settings</p>
+        <p className="text-muted-foreground">
+          Manage your RM portal preferences and settings
+        </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -67,35 +74,45 @@ const Settings = () => {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="font-medium">KYC Expiry Alerts</p>
-                  <p className="text-sm text-muted-foreground">Get notified when customer KYC is expiring</p>
+                  <p className="text-sm text-muted-foreground">
+                    Get notified when customer KYC is expiring
+                  </p>
                 </div>
                 <Switch defaultChecked />
               </div>
               <div className="flex items-center justify-between">
                 <div>
                   <p className="font-medium">SIP Failure Alerts</p>
-                  <p className="text-sm text-muted-foreground">Immediate notification for failed SIP transactions</p>
+                  <p className="text-sm text-muted-foreground">
+                    Immediate notification for failed SIP transactions
+                  </p>
                 </div>
                 <Switch defaultChecked />
               </div>
               <div className="flex items-center justify-between">
                 <div>
                   <p className="font-medium">Mandate Renewal Reminders</p>
-                  <p className="text-sm text-muted-foreground">Reminders for upcoming mandate renewals</p>
+                  <p className="text-sm text-muted-foreground">
+                    Reminders for upcoming mandate renewals
+                  </p>
                 </div>
                 <Switch defaultChecked />
               </div>
               <div className="flex items-center justify-between">
                 <div>
                   <p className="font-medium">Document Missing Alerts</p>
-                  <p className="text-sm text-muted-foreground">Get notified about missing compliance documents</p>
+                  <p className="text-sm text-muted-foreground">
+                    Get notified about missing compliance documents
+                  </p>
                 </div>
                 <Switch defaultChecked />
               </div>
               <div className="flex items-center justify-between">
                 <div>
                   <p className="font-medium">Weekly Summary Report</p>
-                  <p className="text-sm text-muted-foreground">Receive weekly email summary of activities</p>
+                  <p className="text-sm text-muted-foreground">
+                    Receive weekly email summary of activities
+                  </p>
                 </div>
                 <Switch />
               </div>

@@ -13,19 +13,70 @@ import { ArrowLeftRight, Download, Filter, Plus } from "lucide-react";
 
 const Transactions = () => {
   const transactions = [
-    { id: 1, date: "25-Jan-2025", customer: "Rajesh Sharma", type: "Buy", instrument: "Large Cap Basket", amount: "₹2,00,000", units: "1,234", status: "Executed" },
-    { id: 2, date: "24-Jan-2025", customer: "Priya Patel", type: "SIP", instrument: "Multi Cap Strategy", amount: "₹5,00,000", units: "3,210", status: "Executed" },
-    { id: 3, date: "23-Jan-2025", customer: "Amit Verma", type: "Switch", instrument: "Debt to Equity", amount: "₹3,00,000", units: "-", status: "Pending" },
-    { id: 4, date: "22-Jan-2025", customer: "Sunita Reddy", type: "Sell", instrument: "Balanced Portfolio", amount: "₹1,50,000", units: "980", status: "Executed" },
-    { id: 5, date: "21-Jan-2025", customer: "Vikram Singh", type: "Top-up", instrument: "Large Cap Basket", amount: "₹10,00,000", units: "6,543", status: "Pending Approval" },
+    {
+      id: 1,
+      date: "25-Jan-2025",
+      customer: "Rajesh Sharma",
+      type: "Buy",
+      instrument: "Large Cap Basket",
+      amount: "₹2,00,000",
+      units: "1,234",
+      status: "Executed",
+    },
+    {
+      id: 2,
+      date: "24-Jan-2025",
+      customer: "Priya Patel",
+      type: "SIP",
+      instrument: "Multi Cap Strategy",
+      amount: "₹5,00,000",
+      units: "3,210",
+      status: "Executed",
+    },
+    {
+      id: 3,
+      date: "23-Jan-2025",
+      customer: "Amit Verma",
+      type: "Switch",
+      instrument: "Debt to Equity",
+      amount: "₹3,00,000",
+      units: "-",
+      status: "Pending",
+    },
+    {
+      id: 4,
+      date: "22-Jan-2025",
+      customer: "Sunita Reddy",
+      type: "Sell",
+      instrument: "Balanced Portfolio",
+      amount: "₹1,50,000",
+      units: "980",
+      status: "Executed",
+    },
+    {
+      id: 5,
+      date: "21-Jan-2025",
+      customer: "Vikram Singh",
+      type: "Top-up",
+      instrument: "Large Cap Basket",
+      amount: "₹10,00,000",
+      units: "6,543",
+      status: "Pending Approval",
+    },
   ];
 
   const getTypeColor = (type: string) => {
     switch (type) {
-      case "Buy": case "SIP": case "Top-up": return "text-green-600";
-      case "Sell": return "text-red-600";
-      case "Switch": return "text-blue-600";
-      default: return "text-foreground";
+      case "Buy":
+      case "SIP":
+      case "Top-up":
+        return "text-green-600";
+      case "Sell":
+        return "text-red-600";
+      case "Switch":
+        return "text-blue-600";
+      default:
+        return "text-foreground";
     }
   };
 
@@ -35,10 +86,11 @@ const Transactions = () => {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold text-kotak-navy flex items-center gap-2">
-            <ArrowLeftRight className="h-8 w-8 text-kotak-red" />
             Transactions Management
           </h1>
-          <p className="text-muted-foreground">Track and manage all portfolio transactions</p>
+          <p className="text-muted-foreground">
+            Track and manage all portfolio transactions
+          </p>
         </div>
         <Button className="bg-kotak-red hover:bg-kotak-red/90">
           <Plus className="h-4 w-4 mr-2" />
@@ -48,33 +100,41 @@ const Transactions = () => {
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <Card>
+        <Card className="border-l-2 border-l-kotak-navy">
           <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium text-muted-foreground">Today's Transactions</CardTitle>
+            <CardTitle className="text-sm font-medium text-muted-foreground">
+              Today's Transactions
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-3xl font-bold text-kotak-navy">24</p>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="border-l-2 border-l-orange-600">
           <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium text-muted-foreground">Pending Approval</CardTitle>
+            <CardTitle className="text-sm font-medium text-muted-foreground">
+              Pending Approval
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-3xl font-bold text-orange-600">7</p>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="border-l-2 border-l-green-600">
           <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium text-muted-foreground">Total Value (Today)</CardTitle>
+            <CardTitle className="text-sm font-medium text-muted-foreground">
+              Total Value (Today)
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-3xl font-bold text-green-600">₹8.5 Cr</p>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="border-l-2 border-l-red-600">
           <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium text-muted-foreground">Failed/Rejected</CardTitle>
+            <CardTitle className="text-sm font-medium text-muted-foreground">
+              Failed/Rejected
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-3xl font-bold text-red-600">2</p>
@@ -116,15 +176,23 @@ const Transactions = () => {
             <TableBody>
               {transactions.map((transaction) => (
                 <TableRow key={transaction.id}>
-                  <TableCell className="font-medium">{transaction.date}</TableCell>
+                  <TableCell className="font-medium">
+                    {transaction.date}
+                  </TableCell>
                   <TableCell>{transaction.customer}</TableCell>
                   <TableCell>
-                    <span className={`font-medium ${getTypeColor(transaction.type)}`}>
+                    <span
+                      className={`font-medium ${getTypeColor(
+                        transaction.type
+                      )}`}
+                    >
                       {transaction.type}
                     </span>
                   </TableCell>
                   <TableCell>{transaction.instrument}</TableCell>
-                  <TableCell className="font-bold text-kotak-navy">{transaction.amount}</TableCell>
+                  <TableCell className="font-bold text-kotak-navy">
+                    {transaction.amount}
+                  </TableCell>
                   <TableCell>{transaction.units}</TableCell>
                   <TableCell>
                     <Badge
