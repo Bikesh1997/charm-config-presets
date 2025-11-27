@@ -2,6 +2,7 @@ import { Bell, Search, User, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import kotakLogo from "@/assets/kotak.svg";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,9 +13,13 @@ import {
 
 export const RMHeader = () => {
   return (
-    <header className="h-16 bg-card border-b border-border sticky top-0 z-40 flex items-center justify-between px-6">
-      <div className="flex items-center gap-4 flex-1">
-        <div className="relative w-96">
+    <header className="h-16 bg-card border-b border-border sticky top-0 z-40 flex items-center px-6">
+      <div className="flex items-center gap-2">
+        <img src={kotakLogo} alt="Kotak PMS" className="h-8" />
+      </div>
+
+      <div className="flex-1 flex items-center justify-center px-8">
+        <div className="relative w-full max-w-md">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
             placeholder="Search customers, mandates, SIPs..."
@@ -23,7 +28,7 @@ export const RMHeader = () => {
         </div>
       </div>
 
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-3">
         <Button variant="ghost" size="icon" className="relative">
           <Bell className="h-5 w-5" />
           <Badge className="absolute -top-1 -right-1 h-5 w-5 rounded-full p-0 flex items-center justify-center text-xs bg-kotak-red">
