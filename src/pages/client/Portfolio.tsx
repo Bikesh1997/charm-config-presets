@@ -20,9 +20,9 @@ const Portfolio = () => {
   ];
 
   const strategies = [
-    { name: "Equity Refinement Strategy (ERS)", invested: 15000000, current: 17300000, returns: 15, allocation: 48 },
-    { name: "Dynamic Delta Diversification (DDD+)", invested: 12000000, current: 13400000, returns: 12, allocation: 37 },
-    { name: "Fixed Income Strategy", invested: 5000000, current: 5400000, returns: 7, allocation: 15 },
+    { name: "Equity Refinement Strategy (ERS)", invested: 6260000, current: 7200000, returns: 15, allocation: 48 },
+    { name: "Dynamic Delta Diversification (DDD+)", invested: 4955000, current: 5550000, returns: 12, allocation: 37 },
+    { name: "Fixed Income Strategy", invested: 2103000, current: 2250000, returns: 7, allocation: 15 },
   ];
 
   return (
