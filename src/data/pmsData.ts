@@ -28,9 +28,11 @@ export const pmsData = {
       { "label": "Cash", "percent": 5 }
     ],
     "by_market_cap": [
-      { "label": "Large Cap", "percent": 62 },
-      { "label": "Mid Cap", "percent": 28 },
-      { "label": "Small Cap", "percent": 10 }
+      { "label": "Large Cap", "percent": 45 },
+      { "label": "Mid Cap", "percent": 25 },
+      { "label": "Small Cap", "percent": 15 },
+      { "label": "Flexi Cap", "percent": 10 },
+      { "label": "Thematic", "percent": 5 }
     ],
     "by_sector": [
       { "sector": "Financials", "percent": 32 },
