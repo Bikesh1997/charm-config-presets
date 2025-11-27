@@ -24,7 +24,7 @@ const AadhaarNumber = () => {
   return (
     <div className="space-y-8 animate-fade-in">
       <div className="text-left max-w-xl mx-auto">
-        <h2 className="text-2xl font-bold text-kotak-navy">Aadhaar number for verification</h2>
+        <h2 className="text-2xl font-bold text-kotak-navy">Aadhaar number</h2>
       </div>
 
       <div className="w-[400px] mx-auto space-y-3">
@@ -34,7 +34,7 @@ const AadhaarNumber = () => {
           <div className="relative">
             <Input
               type="tel"
-              placeholder="Enter Aadhaar number"
+              placeholder="xxxx xxxx xxxx"
               value={formatAadhaar(aadhaar)}
               onChange={handleChange}
               onKeyDown={(e) => {
@@ -43,7 +43,7 @@ const AadhaarNumber = () => {
                   // Will be handled by NavigationButtons
                 }
               }}
-              className="text-xl h-14 text-center tracking-wider font-mono w-full focus:border-kotak-navy focus:ring-kotak-navy"
+              className="text-xl h-14 tracking-wider font-mono w-full focus:border-kotak-navy focus:ring-kotak-navy"
               maxLength={14}
               autoFocus
             />
