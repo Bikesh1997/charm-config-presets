@@ -6,16 +6,16 @@ export const pmsData = {
   },
 
   "portfolio_summary": {
-    "current_value": 5634200,
-    "net_contribution": 4970000,
-    "net_gain": 664200,
-    "net_gain_percent": 13.37,
-    "xirr": 13.4,
+    "current_value": 15000000,
+    "net_contribution": 12200000,
+    "net_gain": 2800000,
+    "net_gain_percent": 22.95,
+    "xirr": 16.0,
     "benchmark": {
       "name": "NIFTY 500 TRI",
-      "since_inception_return_percent": 11.9,
-      "one_year_return_percent": 17.2,
-      "three_year_return_percent": 12.5
+      "since_inception_return_percent": 14.2,
+      "one_year_return_percent": 18.5,
+      "three_year_return_percent": 13.8
     }
   },
 
@@ -43,102 +43,102 @@ export const pmsData = {
     {
       "stock": "HDFC Bank",
       "sector": "Financials",
-      "quantity": 220,
+      "quantity": 1284,
       "avg_buy_price": 1445,
       "current_price": 1660,
-      "value": 365200,
+      "value": 2131440,
       "gain_loss_percent": 14.9,
-      "weight_percent": 6.48
+      "weight_percent": 14.21
     },
     {
       "stock": "ICICI Bank",
       "sector": "Financials",
-      "quantity": 180,
+      "quantity": 1051,
       "avg_buy_price": 960,
       "current_price": 1125,
-      "value": 202500,
+      "value": 1182375,
       "gain_loss_percent": 17.2,
-      "weight_percent": 3.59
+      "weight_percent": 7.88
     },
     {
       "stock": "Infosys",
       "sector": "IT",
-      "quantity": 150,
+      "quantity": 875,
       "avg_buy_price": 1390,
       "current_price": 1675,
-      "value": 251250,
+      "value": 1465625,
       "gain_loss_percent": 20.5,
-      "weight_percent": 4.46
+      "weight_percent": 9.77
     },
     {
       "stock": "TCS",
       "sector": "IT",
-      "quantity": 80,
+      "quantity": 467,
       "avg_buy_price": 3320,
       "current_price": 3825,
-      "value": 306000,
+      "value": 1786275,
       "gain_loss_percent": 15.2,
-      "weight_percent": 5.43
+      "weight_percent": 11.91
     },
     {
       "stock": "Dr. Reddy's",
       "sector": "Pharma",
-      "quantity": 50,
+      "quantity": 292,
       "avg_buy_price": 5150,
       "current_price": 6070,
-      "value": 303500,
+      "value": 1772440,
       "gain_loss_percent": 17.9,
-      "weight_percent": 5.39
+      "weight_percent": 11.82
     },
     {
       "stock": "Aurobindo Pharma",
       "sector": "Pharma",
-      "quantity": 140,
+      "quantity": 817,
       "avg_buy_price": 930,
       "current_price": 1025,
-      "value": 143500,
+      "value": 837425,
       "gain_loss_percent": 10.2,
-      "weight_percent": 2.54
+      "weight_percent": 5.58
     },
     {
       "stock": "Maruti Suzuki",
       "sector": "Automobile",
-      "quantity": 30,
+      "quantity": 175,
       "avg_buy_price": 9300,
       "current_price": 11150,
-      "value": 334500,
+      "value": 1951250,
       "gain_loss_percent": 19.9,
-      "weight_percent": 5.94
+      "weight_percent": 13.01
     },
     {
       "stock": "Eicher Motors",
       "sector": "Automobile",
-      "quantity": 40,
+      "quantity": 233,
       "avg_buy_price": 3250,
       "current_price": 3940,
-      "value": 157600,
+      "value": 918020,
       "gain_loss_percent": 21.3,
-      "weight_percent": 2.80
+      "weight_percent": 6.12
     },
     {
       "stock": "Asian Paints",
       "sector": "Consumer",
-      "quantity": 70,
+      "quantity": 408,
       "avg_buy_price": 2850,
       "current_price": 3290,
-      "value": 230300,
+      "value": 1342320,
       "gain_loss_percent": 15.4,
-      "weight_percent": 4.09
+      "weight_percent": 8.95
     },
     {
       "stock": "Avenue Supermarts (DMart)",
       "sector": "Consumer",
-      "quantity": 30,
+      "quantity": 175,
       "avg_buy_price": 3510,
       "current_price": 4050,
-      "value": 121500,
+      "value": 708750,
       "gain_loss_percent": 15.4,
-      "weight_percent": 2.15
+      "weight_percent": 4.73
     },
     {
       "stock": "Cash",
@@ -146,45 +146,40 @@ export const pmsData = {
       "quantity": 0,
       "avg_buy_price": 0,
       "current_price": 1,
-      "value": 338350,
+      "value": 900000,
       "gain_loss_percent": 0,
       "weight_percent": 6.00
     }
   ],
 
   "performance_chart": {
-    "period": "since_inception_2021",
+    "period": "since_inception_2022",
     "portfolio_values": [
-      { "date": "2021-01-01", "value": 1000000 },
-      { "date": "2021-06-01", "value": 1125000 },
-      { "date": "2022-01-01", "value": 1284000 },
-      { "date": "2022-07-01", "value": 1410000 },
-      { "date": "2023-01-01", "value": 1595000 },
-      { "date": "2023-07-01", "value": 1728000 },
-      { "date": "2024-01-01", "value": 1982000 },
-      { "date": "2024-07-01", "value": 2410000 },
-      { "date": "2025-01-01", "value": 5634200 }
+      { "date": "2022-04-01", "value": 5000000 },
+      { "date": "2022-10-01", "value": 7900000 },
+      { "date": "2023-04-01", "value": 10400000 },
+      { "date": "2023-10-01", "value": 12150000 },
+      { "date": "2024-04-01", "value": 13800000 },
+      { "date": "2024-10-01", "value": 14600000 },
+      { "date": "2025-01-15", "value": 15000000 }
     ],
     "benchmark_values": [
-      { "date": "2021-01-01", "value": 1000000 },
-      { "date": "2021-06-01", "value": 1094000 },
-      { "date": "2022-01-01", "value": 1176000 },
-      { "date": "2022-07-01", "value": 1259000 },
-      { "date": "2023-01-01", "value": 1402000 },
-      { "date": "2023-07-01", "value": 1526000 },
-      { "date": "2024-01-01", "value": 1710000 },
-      { "date": "2024-07-01", "value": 1915000 },
-      { "date": "2025-01-01", "value": 2238000 }
+      { "date": "2022-04-01", "value": 5000000 },
+      { "date": "2022-10-01", "value": 7650000 },
+      { "date": "2023-04-01", "value": 9950000 },
+      { "date": "2023-10-01", "value": 11500000 },
+      { "date": "2024-04-01", "value": 13000000 },
+      { "date": "2024-10-01", "value": 13750000 },
+      { "date": "2025-01-15", "value": 14100000 }
     ]
   },
 
   "transactions": [
-    { "date": "2021-01-01", "type": "Contribution", "amount": 1000000 },
-    { "date": "2021-12-01", "type": "Contribution", "amount": 700000 },
-    { "date": "2022-12-01", "type": "Contribution", "amount": 900000 },
-    { "date": "2023-06-01", "type": "Contribution", "amount": 800000 },
-    { "date": "2024-01-01", "type": "Contribution", "amount": 900000 },
-    { "date": "2024-09-01", "type": "Contribution", "amount": 670000 }
+    { "date": "2022-04-01", "type": "Contribution", "amount": 5000000 },
+    { "date": "2022-10-01", "type": "Contribution", "amount": 2500000 },
+    { "date": "2023-04-01", "type": "Contribution", "amount": 2000000 },
+    { "date": "2023-10-01", "type": "Contribution", "amount": 1500000 },
+    { "date": "2024-04-01", "type": "Contribution", "amount": 1200000 }
   ],
 
   "strategy_info": {
