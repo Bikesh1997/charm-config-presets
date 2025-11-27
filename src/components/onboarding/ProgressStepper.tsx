@@ -47,7 +47,7 @@ const ProgressStepper = () => {
               </div>
               
               {index < steps.length - 1 && (
-                <div className="flex-1 flex items-center" style={{ paddingTop: '16px' }}>
+                <div className="flex-1 flex items-start pt-4">
                   <div 
                     className={cn(
                       "h-0.5 w-full mx-2 transition-all duration-300",
