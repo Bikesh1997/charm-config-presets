@@ -38,7 +38,7 @@ const AnnualIncome = () => {
   return (
     <div className="space-y-8 animate-fade-in">
       <div className="text-left max-w-xl mx-auto">
-        <h2 className="text-2xl font-bold text-kotak-navy">Share Your Income Details</h2>
+        <h2 className="text-2xl font-bold text-kotak-navy">Income Details</h2>
       </div>
 
       <div className="max-w-2xl mx-auto">
@@ -48,24 +48,24 @@ const AnnualIncome = () => {
             key={range.id}
             onClick={() => handleSelect(range.label)}
             className={cn(
-              "p-4 cursor-pointer transition-all duration-200 hover:shadow-lg hover:scale-[1.02] relative",
+              "p-3 cursor-pointer transition-all duration-200 hover:shadow-lg hover:scale-[1.02] relative",
               selected === range.label
                 ? "border-2 border-kotak-red bg-kotak-red/5"
                 : "border-2 border-border hover:border-kotak-red/50"
             )}
           >
-            <div className="flex flex-col items-center gap-3 text-center">
+            <div className="flex flex-col items-center gap-2 text-center">
               <div
                 className={cn(
-                  "w-10 h-10 rounded-full flex items-center justify-center transition-colors",
+                  "w-7 h-7 rounded-full flex items-center justify-center transition-colors",
                   selected === range.label
                     ? "bg-kotak-red text-white"
                     : "bg-muted text-muted-foreground"
                 )}
               >
-                <IndianRupee className="h-5 w-5" />
+                <IndianRupee className="h-4 w-4" />
               </div>
-              <p className="text-sm font-semibold text-foreground leading-tight">
+              <p className="text-xs font-semibold text-foreground leading-tight">
                 {range.label}
               </p>
               {selected === range.label && (
