@@ -42,19 +42,23 @@ All colors MUST be HSL.
     --ring: 210 20% 70%;
 
     --radius: 0.5rem;
-    
+
     /* Custom Kotak tokens */
     --kotak-red: 357 85% 56%;
     --kotak-navy: 210 100% 18%;
     --kotak-success: 145 100% 33%;
     --text-primary: 0 0% 10%;
     --text-secondary: 0 0% 40%;
-    
+
     /* Shadows */
     --shadow-kotak: 0 4px 20px rgba(0, 46, 93, 0.08);
-    
+
     /* Gradients */
-    --gradient-portfolio: linear-gradient(135deg, hsl(210, 100%, 97%) 0%, hsl(210, 80%, 96%) 100%);
+    --gradient-portfolio: linear-gradient(
+      135deg,
+      hsl(210, 100%, 97%) 0%,
+      hsl(210, 80%, 96%) 100%
+    );
 
     --sidebar-background: 0 0% 98%;
 
