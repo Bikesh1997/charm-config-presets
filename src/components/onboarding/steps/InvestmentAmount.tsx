@@ -38,7 +38,7 @@ const InvestmentAmount = () => {
   const displayValue = amount ? formatIndianCurrency(amount) : "";
 
   return (
-    <div className="space-y-8 animate-fade-in">
+    <div className="animate-fade-in">
       <div className="w-[400px] mx-auto space-y-6">
         <div className="space-y-3">
           <label className="text-sm font-medium text-foreground">
