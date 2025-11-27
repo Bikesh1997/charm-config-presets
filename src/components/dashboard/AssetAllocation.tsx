@@ -8,8 +8,8 @@ interface AssetAllocationProps {
 }
 
 const COLORS = {
-  assetClass: ["hsl(270, 70%, 70%)", "hsl(340, 80%, 70%)"],
-  marketCap: ["hsl(270, 70%, 70%)", "hsl(340, 80%, 70%)", "hsl(160, 70%, 60%)"],
+  assetClass: ["hsl(35, 85%, 65%)", "hsl(340, 80%, 70%)"],
+  marketCap: ["hsl(35, 85%, 65%)", "hsl(340, 80%, 70%)", "hsl(160, 70%, 60%)"],
   sector: [
     "hsl(45, 85%, 65%)",            // Light yellow
     "hsl(340, 75%, 68%)",           // Light coral red
