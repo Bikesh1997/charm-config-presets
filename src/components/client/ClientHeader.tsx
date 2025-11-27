@@ -26,12 +26,6 @@ export const ClientHeader = () => {
 
           {/* Right Section */}
           <div className="flex items-center gap-4">
-            {/* Portfolio Value - Desktop Only */}
-            <div className="hidden lg:block">
-              <p className="text-xs text-muted-foreground">Total Portfolio Value</p>
-              <p className="text-lg font-bold text-kotak-red">₹3.12 Cr</p>
-            </div>
-
             {/* Notifications */}
             <Button variant="ghost" size="icon" className="relative">
               <Bell className="h-5 w-5" />
