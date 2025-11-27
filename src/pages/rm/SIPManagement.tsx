@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
+import { useToast } from "@/hooks/use-toast";
 import {
   Table,
   TableBody,
@@ -31,10 +32,13 @@ import {
 import { RepeatIcon, Plus, Pause, Play, Edit, TrendingUp, CheckCircle2 } from "lucide-react";
 
 const SIPManagement = () => {
+  const { toast } = useToast();
   const [open, setOpen] = useState(false);
   const [splitMode, setSplitMode] = useState(false);
   const [confirmDialog, setConfirmDialog] = useState(false);
   const [actionMessage, setActionMessage] = useState("");
+  const [editMode, setEditMode] = useState(false);
+  const [selectedSip, setSelectedSip] = useState<any>(null);
   const [allocations, setAllocations] = useState([
     { strategy: "Multi Cap", percentage: 40 },
     { strategy: "Large Cap", percentage: 40 },
@@ -44,6 +48,42 @@ const SIPManagement = () => {
   const handleAction = (action: string, customer: string) => {
     setActionMessage(`${action} for ${customer} has been completed successfully`);
     setConfirmDialog(true);
+  };
+
+  const handleEdit = (sip: any) => {
+    setSelectedSip(sip);
+    setEditMode(true);
+    setSplitMode(sip.split);
+    setOpen(true);
+  };
+
+  const handleCreate = () => {
+    setSelectedSip(null);
+    setEditMode(false);
+    setSplitMode(false);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    setEditMode(false);
+    setSelectedSip(null);
+    setSplitMode(false);
+  };
+
+  const handleSubmit = () => {
+    if (editMode) {
+      toast({
+        title: "SIP Updated",
+        description: `SIP for ${selectedSip?.customer} has been updated successfully.`,
+      });
+    } else {
+      toast({
+        title: "SIP Created",
+        description: "New SIP has been created successfully.",
+      });
+    }
+    handleClose();
   };
 
   const sips = [
@@ -72,48 +112,53 @@ const SIPManagement = () => {
           </h1>
           <p className="text-muted-foreground">Manage systematic investment plans with split allocation support</p>
         </div>
-        <Dialog open={open} onOpenChange={setOpen}>
-          <DialogTrigger asChild>
-            <Button className="bg-kotak-red hover:bg-kotak-red/90">
-              <Plus className="h-4 w-4 mr-2" />
-              Create New SIP
-            </Button>
-          </DialogTrigger>
+        <Button className="bg-kotak-red hover:bg-kotak-red/90" onClick={handleCreate}>
+          <Plus className="h-4 w-4 mr-2" />
+          Create New SIP
+        </Button>
+        <Dialog open={open} onOpenChange={handleClose}>
           <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
             <DialogHeader>
-              <DialogTitle>Create New SIP</DialogTitle>
-              <DialogDescription>Set up a systematic investment plan with optional split allocation</DialogDescription>
+              <DialogTitle>{editMode ? 'Edit SIP' : 'Create New SIP'}</DialogTitle>
+              <DialogDescription>
+                {editMode ? 'Update the systematic investment plan details' : 'Set up a systematic investment plan with optional split allocation'}
+              </DialogDescription>
             </DialogHeader>
             <div className="space-y-4 py-4">
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>Customer</Label>
-                  <Select>
+                  <Select defaultValue={editMode ? selectedSip?.customer : undefined}>
                     <SelectTrigger>
                       <SelectValue placeholder="Select customer" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="1">Rajesh Sharma</SelectItem>
-                      <SelectItem value="2">Priya Patel</SelectItem>
-                      <SelectItem value="3">Amit Verma</SelectItem>
+                      <SelectItem value="Rajesh Sharma">Rajesh Sharma</SelectItem>
+                      <SelectItem value="Priya Patel">Priya Patel</SelectItem>
+                      <SelectItem value="Amit Verma">Amit Verma</SelectItem>
+                      <SelectItem value="Sunita Reddy">Sunita Reddy</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
                 <div className="space-y-2">
                   <Label>SIP Amount</Label>
-                  <Input type="number" placeholder="Enter amount" />
+                  <Input 
+                    type="text" 
+                    placeholder="Enter amount" 
+                    defaultValue={editMode ? selectedSip?.amount : ''}
+                  />
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>Frequency</Label>
-                  <Select>
+                  <Select defaultValue={editMode ? selectedSip?.frequency : undefined}>
                     <SelectTrigger>
                       <SelectValue placeholder="Select frequency" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="monthly">Monthly</SelectItem>
-                      <SelectItem value="quarterly">Quarterly</SelectItem>
+                      <SelectItem value="Monthly">Monthly</SelectItem>
+                      <SelectItem value="Quarterly">Quarterly</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -192,13 +237,13 @@ const SIPManagement = () => {
               </div>
             </div>
             <div className="flex justify-end gap-3">
-              <Button variant="outline" onClick={() => setOpen(false)}>Cancel</Button>
+              <Button variant="outline" onClick={handleClose}>Cancel</Button>
               <Button
                 className="bg-kotak-red hover:bg-kotak-red/90"
-                onClick={() => setOpen(false)}
+                onClick={handleSubmit}
                 disabled={splitMode && totalAllocation !== 100}
               >
-                Create SIP
+                {editMode ? 'Update SIP' : 'Create SIP'}
               </Button>
             </div>
           </DialogContent>
@@ -299,7 +344,7 @@ const SIPManagement = () => {
                       <Button 
                         size="sm" 
                         variant="ghost"
-                        onClick={() => handleAction("Edit SIP", sip.customer)}
+                        onClick={() => handleEdit(sip)}
                       >
                         <Edit className="h-4 w-4" />
                       </Button>
