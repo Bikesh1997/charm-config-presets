@@ -30,6 +30,14 @@ export const AssetAllocation = ({ byAssetClass, byMarketCap, bySector }: AssetAl
         <CardContent>
           <ResponsiveContainer width="100%" height={250}>
             <PieChart>
+              <defs>
+                {COLORS.assetClass.map((color, index) => (
+                  <radialGradient key={`gradient-asset-${index}`} id={`gradient-asset-${index}`}>
+                    <stop offset="0%" stopColor={color} stopOpacity={1} />
+                    <stop offset="100%" stopColor={color} stopOpacity={0.7} />
+                  </radialGradient>
+                ))}
+              </defs>
               <Pie
                 data={byAssetClass}
                 cx="50%"
@@ -41,7 +49,7 @@ export const AssetAllocation = ({ byAssetClass, byMarketCap, bySector }: AssetAl
                 dataKey="percent"
               >
                 {byAssetClass.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS.assetClass[index % COLORS.assetClass.length]} />
+                  <Cell key={`cell-${index}`} fill={`url(#gradient-asset-${index})`} stroke={COLORS.assetClass[index % COLORS.assetClass.length]} strokeWidth={1} />
                 ))}
               </Pie>
               <Tooltip formatter={(value) => `${value}%`} />
@@ -57,6 +65,14 @@ export const AssetAllocation = ({ byAssetClass, byMarketCap, bySector }: AssetAl
         <CardContent>
           <ResponsiveContainer width="100%" height={250}>
             <PieChart>
+              <defs>
+                {COLORS.marketCap.map((color, index) => (
+                  <radialGradient key={`gradient-market-${index}`} id={`gradient-market-${index}`}>
+                    <stop offset="0%" stopColor={color} stopOpacity={1} />
+                    <stop offset="100%" stopColor={color} stopOpacity={0.7} />
+                  </radialGradient>
+                ))}
+              </defs>
               <Pie
                 data={byMarketCap}
                 cx="50%"
@@ -68,7 +84,7 @@ export const AssetAllocation = ({ byAssetClass, byMarketCap, bySector }: AssetAl
                 dataKey="percent"
               >
                 {byMarketCap.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS.marketCap[index % COLORS.marketCap.length]} />
+                  <Cell key={`cell-${index}`} fill={`url(#gradient-market-${index})`} stroke={COLORS.marketCap[index % COLORS.marketCap.length]} strokeWidth={1} />
                 ))}
               </Pie>
               <Tooltip formatter={(value) => `${value}%`} />
