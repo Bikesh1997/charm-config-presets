@@ -21,7 +21,10 @@ import {
   Target,
   Users,
   Receipt,
-  Activity
+  Activity,
+  Download,
+  Eye,
+  Plus
 } from "lucide-react";
 import {
   Dialog,
@@ -411,8 +414,125 @@ const CustomerDetail = () => {
             <CardHeader>
               <CardTitle>Portfolio Overview</CardTitle>
             </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="grid grid-cols-4 gap-4">
+                <div>
+                  <p className="text-sm text-muted-foreground">Total Value</p>
+                  <p className="text-xl font-bold text-kotak-navy">{customer.aum}</p>
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">Invested Amount</p>
+                  <p className="text-xl font-bold">₹38 Cr</p>
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">Gains</p>
+                  <p className="text-xl font-bold text-green-600">₹7 Cr</p>
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">Returns</p>
+                  <p className="text-xl font-bold text-green-600">{customer.returns}</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Strategy Allocation</CardTitle>
+            </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground">Portfolio details would be displayed here with holdings, performance charts, and asset allocation.</p>
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-medium">Equity Refinement Strategy</span>
+                    <span className="text-sm font-bold text-kotak-navy">₹21.6 Cr (48%)</span>
+                  </div>
+                  <div className="h-2 bg-muted rounded-full overflow-hidden">
+                    <div className="h-full bg-kotak-red" style={{ width: '48%' }} />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-medium">Dynamic Delta Diversification</span>
+                    <span className="text-sm font-bold text-kotak-navy">₹16.65 Cr (37%)</span>
+                  </div>
+                  <div className="h-2 bg-muted rounded-full overflow-hidden">
+                    <div className="h-full bg-blue-600" style={{ width: '37%' }} />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-medium">Fixed Income Strategy</span>
+                    <span className="text-sm font-bold text-kotak-navy">₹6.75 Cr (15%)</span>
+                  </div>
+                  <div className="h-2 bg-muted rounded-full overflow-hidden">
+                    <div className="h-full bg-green-600" style={{ width: '15%' }} />
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Top Holdings</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                <div className="flex items-center justify-between p-3 bg-muted/50 rounded-lg">
+                  <div>
+                    <p className="font-medium">Reliance Industries</p>
+                    <p className="text-xs text-muted-foreground">250 shares • Large Cap</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="font-bold text-kotak-navy">₹7.2 Cr</p>
+                    <p className="text-xs text-green-600">+12.5%</p>
+                  </div>
+                </div>
+                <div className="flex items-center justify-between p-3 bg-muted/50 rounded-lg">
+                  <div>
+                    <p className="font-medium">HDFC Bank</p>
+                    <p className="text-xs text-muted-foreground">500 shares • Large Cap</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="font-bold text-kotak-navy">₹6.8 Cr</p>
+                    <p className="text-xs text-green-600">+9.8%</p>
+                  </div>
+                </div>
+                <div className="flex items-center justify-between p-3 bg-muted/50 rounded-lg">
+                  <div>
+                    <p className="font-medium">Infosys</p>
+                    <p className="text-xs text-muted-foreground">400 shares • Large Cap</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="font-bold text-kotak-navy">₹5.6 Cr</p>
+                    <p className="text-xs text-green-600">+15.2%</p>
+                  </div>
+                </div>
+                <div className="flex items-center justify-between p-3 bg-muted/50 rounded-lg">
+                  <div>
+                    <p className="font-medium">TCS</p>
+                    <p className="text-xs text-muted-foreground">350 shares • Large Cap</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="font-bold text-kotak-navy">₹4.9 Cr</p>
+                    <p className="text-xs text-green-600">+11.3%</p>
+                  </div>
+                </div>
+                <div className="flex items-center justify-between p-3 bg-muted/50 rounded-lg">
+                  <div>
+                    <p className="font-medium">ICICI Bank</p>
+                    <p className="text-xs text-muted-foreground">450 shares • Large Cap</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="font-bold text-kotak-navy">₹4.5 Cr</p>
+                    <p className="text-xs text-green-600">+8.7%</p>
+                  </div>
+                </div>
+              </div>
+              <Button variant="outline" className="w-full mt-4">
+                View All Holdings
+              </Button>
             </CardContent>
           </Card>
         </TabsContent>
@@ -420,14 +540,122 @@ const CustomerDetail = () => {
         <TabsContent value="mandates" className="space-y-6">
           <Card>
             <CardHeader>
-              <CardTitle>Active Mandates</CardTitle>
+              <CardTitle>Active Mandates & SIPs</CardTitle>
             </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">Mandate details, SIP schedules, and payment history would be displayed here.</p>
+            <CardContent className="space-y-4">
+              <div className="border rounded-lg p-4">
+                <div className="flex items-center justify-between mb-3">
+                  <div>
+                    <p className="font-medium">Monthly SIP - Multi Cap Strategy</p>
+                    <p className="text-xs text-muted-foreground">Mandate ID: MND2024001</p>
+                  </div>
+                  <Badge className="bg-green-600">Active</Badge>
+                </div>
+                <div className="grid grid-cols-3 gap-4 text-sm">
+                  <div>
+                    <p className="text-muted-foreground">Amount</p>
+                    <p className="font-medium">₹2,00,000</p>
+                  </div>
+                  <div>
+                    <p className="text-muted-foreground">Frequency</p>
+                    <p className="font-medium">Monthly</p>
+                  </div>
+                  <div>
+                    <p className="text-muted-foreground">Bank</p>
+                    <p className="font-medium">HDFC Bank</p>
+                  </div>
+                  <div>
+                    <p className="text-muted-foreground">Start Date</p>
+                    <p className="font-medium">Jan 1, 2023</p>
+                  </div>
+                  <div>
+                    <p className="text-muted-foreground">Next Debit</p>
+                    <p className="font-medium">Feb 1, 2025</p>
+                  </div>
+                  <div>
+                    <p className="text-muted-foreground">Total Invested</p>
+                    <p className="font-medium text-kotak-navy">₹48 L</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="border rounded-lg p-4">
+                <div className="flex items-center justify-between mb-3">
+                  <div>
+                    <p className="font-medium">Quarterly SIP - Balanced Strategy</p>
+                    <p className="text-xs text-muted-foreground">Mandate ID: MND2024002</p>
+                  </div>
+                  <Badge className="bg-green-600">Active</Badge>
+                </div>
+                <div className="grid grid-cols-3 gap-4 text-sm">
+                  <div>
+                    <p className="text-muted-foreground">Amount</p>
+                    <p className="font-medium">₹5,00,000</p>
+                  </div>
+                  <div>
+                    <p className="text-muted-foreground">Frequency</p>
+                    <p className="font-medium">Quarterly</p>
+                  </div>
+                  <div>
+                    <p className="text-muted-foreground">Bank</p>
+                    <p className="font-medium">HDFC Bank</p>
+                  </div>
+                  <div>
+                    <p className="text-muted-foreground">Start Date</p>
+                    <p className="font-medium">Apr 1, 2023</p>
+                  </div>
+                  <div>
+                    <p className="text-muted-foreground">Next Debit</p>
+                    <p className="font-medium">Apr 1, 2025</p>
+                  </div>
+                  <div>
+                    <p className="text-muted-foreground">Total Invested</p>
+                    <p className="font-medium text-kotak-navy">₹35 L</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="border rounded-lg p-4 bg-muted/30">
+                <div className="flex items-center justify-between mb-3">
+                  <div>
+                    <p className="font-medium">One-time Lumpsum</p>
+                    <p className="text-xs text-muted-foreground">Mandate ID: MND2023087</p>
+                  </div>
+                  <Badge variant="secondary">Completed</Badge>
+                </div>
+                <div className="grid grid-cols-3 gap-4 text-sm">
+                  <div>
+                    <p className="text-muted-foreground">Amount</p>
+                    <p className="font-medium">₹50,00,000</p>
+                  </div>
+                  <div>
+                    <p className="text-muted-foreground">Type</p>
+                    <p className="font-medium">One-time</p>
+                  </div>
+                  <div>
+                    <p className="text-muted-foreground">Bank</p>
+                    <p className="font-medium">HDFC Bank</p>
+                  </div>
+                  <div>
+                    <p className="text-muted-foreground">Date</p>
+                    <p className="font-medium">Aug 10, 2024</p>
+                  </div>
+                  <div>
+                    <p className="text-muted-foreground">Status</p>
+                    <p className="font-medium">Processed</p>
+                  </div>
+                  <div>
+                    <p className="text-muted-foreground">Strategy</p>
+                    <p className="font-medium">Equity Growth</p>
+                  </div>
+                </div>
+              </div>
+
               <Button 
-                className="mt-4"
+                className="w-full"
                 onClick={() => handleAction("Create New Mandate")}
               >
+                <Plus className="h-4 w-4 mr-2" />
                 Create New Mandate
               </Button>
             </CardContent>
@@ -443,7 +671,132 @@ const CustomerDetail = () => {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground">Customer documents, agreements, and compliance files would be listed here.</p>
+              <div className="space-y-3">
+                <div className="flex items-center justify-between p-4 border rounded-lg hover:bg-muted/50 transition-colors">
+                  <div className="flex items-center gap-3">
+                    <div className="h-10 w-10 bg-red-100 rounded-lg flex items-center justify-center">
+                      <FileText className="h-5 w-5 text-red-600" />
+                    </div>
+                    <div>
+                      <p className="font-medium">PMS Agreement</p>
+                      <p className="text-xs text-muted-foreground">Uploaded on Jan 15, 2023 • 2.4 MB</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-2">
+                    <Button size="sm" variant="ghost" onClick={() => handleAction("View Document")}>
+                      <Eye className="h-4 w-4" />
+                    </Button>
+                    <Button size="sm" variant="ghost" onClick={() => handleAction("Download Document")}>
+                      <Download className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between p-4 border rounded-lg hover:bg-muted/50 transition-colors">
+                  <div className="flex items-center gap-3">
+                    <div className="h-10 w-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                      <FileText className="h-5 w-5 text-blue-600" />
+                    </div>
+                    <div>
+                      <p className="font-medium">KYC Documents</p>
+                      <p className="text-xs text-muted-foreground">Updated on Sep 5, 2024 • 1.8 MB</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-2">
+                    <Button size="sm" variant="ghost" onClick={() => handleAction("View Document")}>
+                      <Eye className="h-4 w-4" />
+                    </Button>
+                    <Button size="sm" variant="ghost" onClick={() => handleAction("Download Document")}>
+                      <Download className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between p-4 border rounded-lg hover:bg-muted/50 transition-colors">
+                  <div className="flex items-center gap-3">
+                    <div className="h-10 w-10 bg-green-100 rounded-lg flex items-center justify-center">
+                      <FileText className="h-5 w-5 text-green-600" />
+                    </div>
+                    <div>
+                      <p className="font-medium">Bank Mandate Form</p>
+                      <p className="text-xs text-muted-foreground">Uploaded on Jan 15, 2023 • 856 KB</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-2">
+                    <Button size="sm" variant="ghost" onClick={() => handleAction("View Document")}>
+                      <Eye className="h-4 w-4" />
+                    </Button>
+                    <Button size="sm" variant="ghost" onClick={() => handleAction("Download Document")}>
+                      <Download className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between p-4 border rounded-lg hover:bg-muted/50 transition-colors">
+                  <div className="flex items-center gap-3">
+                    <div className="h-10 w-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                      <FileText className="h-5 w-5 text-orange-600" />
+                    </div>
+                    <div>
+                      <p className="font-medium">PAN Card Copy</p>
+                      <p className="text-xs text-muted-foreground">Uploaded on Jan 15, 2023 • 324 KB</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-2">
+                    <Button size="sm" variant="ghost" onClick={() => handleAction("View Document")}>
+                      <Eye className="h-4 w-4" />
+                    </Button>
+                    <Button size="sm" variant="ghost" onClick={() => handleAction("Download Document")}>
+                      <Download className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between p-4 border rounded-lg hover:bg-muted/50 transition-colors">
+                  <div className="flex items-center gap-3">
+                    <div className="h-10 w-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                      <FileText className="h-5 w-5 text-purple-600" />
+                    </div>
+                    <div>
+                      <p className="font-medium">Quarterly Portfolio Report - Q3 2024</p>
+                      <p className="text-xs text-muted-foreground">Generated on Nov 20, 2024 • 3.2 MB</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-2">
+                    <Button size="sm" variant="ghost" onClick={() => handleAction("View Document")}>
+                      <Eye className="h-4 w-4" />
+                    </Button>
+                    <Button size="sm" variant="ghost" onClick={() => handleAction("Download Document")}>
+                      <Download className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between p-4 border rounded-lg hover:bg-muted/50 transition-colors">
+                  <div className="flex items-center gap-3">
+                    <div className="h-10 w-10 bg-yellow-100 rounded-lg flex items-center justify-center">
+                      <FileText className="h-5 w-5 text-yellow-600" />
+                    </div>
+                    <div>
+                      <p className="font-medium">Tax Statement - FY 2023-24</p>
+                      <p className="text-xs text-muted-foreground">Generated on Apr 10, 2024 • 1.1 MB</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-2">
+                    <Button size="sm" variant="ghost" onClick={() => handleAction("View Document")}>
+                      <Eye className="h-4 w-4" />
+                    </Button>
+                    <Button size="sm" variant="ghost" onClick={() => handleAction("Download Document")}>
+                      <Download className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </div>
+              </div>
+
+              <Button variant="outline" className="w-full mt-4">
+                <Plus className="h-4 w-4 mr-2" />
+                Upload New Document
+              </Button>
             </CardContent>
           </Card>
         </TabsContent>
