@@ -74,7 +74,7 @@ const DeclarationSign = () => {
         <h2 className="text-2xl font-bold text-kotak-navy">Declaration and E-Signature</h2>
       </div>
 
-      <div className="w-[400px] mx-auto">
+      <div className="w-[650px] mx-auto">
       {/* Combined Single Card */}
       <Card className="p-6 space-y-6">
         {/* Declaration Section */}
