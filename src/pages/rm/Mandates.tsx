@@ -33,10 +33,30 @@ const Mandates = () => {
   const [open, setOpen] = useState(false);
   const [confirmDialog, setConfirmDialog] = useState(false);
   const [actionMessage, setActionMessage] = useState("");
+  const [editMode, setEditMode] = useState(false);
+  const [selectedMandate, setSelectedMandate] = useState<any>(null);
 
   const handleAction = (action: string, customer: string) => {
     setActionMessage(`${action} for ${customer} has been initiated successfully`);
     setConfirmDialog(true);
+  };
+
+  const handleEdit = (mandate: any) => {
+    setSelectedMandate(mandate);
+    setEditMode(true);
+    setOpen(true);
+  };
+
+  const handleCreate = () => {
+    setSelectedMandate(null);
+    setEditMode(false);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    setEditMode(false);
+    setSelectedMandate(null);
   };
 
   const mandates = [
@@ -78,44 +98,46 @@ const Mandates = () => {
           </h1>
           <p className="text-muted-foreground">Create, track, and manage PMS mandates & e-mandates</p>
         </div>
-        <Dialog open={open} onOpenChange={setOpen}>
-          <DialogTrigger asChild>
-            <Button className="bg-kotak-red hover:bg-kotak-red/90">
-              <Plus className="h-4 w-4 mr-2" />
-              Create New Mandate
-            </Button>
-          </DialogTrigger>
+        <Button className="bg-kotak-red hover:bg-kotak-red/90" onClick={handleCreate}>
+          <Plus className="h-4 w-4 mr-2" />
+          Create New Mandate
+        </Button>
+        <Dialog open={open} onOpenChange={handleClose}>
           <DialogContent className="max-w-2xl">
             <DialogHeader>
-              <DialogTitle>Create New Mandate</DialogTitle>
-              <DialogDescription>Set up a new payment mandate for PMS investment</DialogDescription>
+              <DialogTitle>{editMode ? 'Edit Mandate' : 'Create New Mandate'}</DialogTitle>
+              <DialogDescription>
+                {editMode ? 'Update the payment mandate details' : 'Set up a new payment mandate for PMS investment'}
+              </DialogDescription>
             </DialogHeader>
             <div className="space-y-4 py-4">
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>Customer</Label>
-                  <Select>
+                  <Select defaultValue={editMode ? selectedMandate?.customer : undefined}>
                     <SelectTrigger>
                       <SelectValue placeholder="Select customer" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="1">Rajesh Sharma</SelectItem>
-                      <SelectItem value="2">Priya Patel</SelectItem>
-                      <SelectItem value="3">Amit Verma</SelectItem>
+                      <SelectItem value="Rajesh Sharma">Rajesh Sharma</SelectItem>
+                      <SelectItem value="Priya Patel">Priya Patel</SelectItem>
+                      <SelectItem value="Amit Verma">Amit Verma</SelectItem>
+                      <SelectItem value="Sunita Reddy">Sunita Reddy</SelectItem>
+                      <SelectItem value="Vikram Singh">Vikram Singh</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
                 <div className="space-y-2">
                   <Label>Mandate Type</Label>
-                  <Select>
+                  <Select defaultValue={editMode ? selectedMandate?.type : undefined}>
                     <SelectTrigger>
                       <SelectValue placeholder="Select type" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="monthly-sip">Monthly SIP</SelectItem>
-                      <SelectItem value="quarterly-sip">Quarterly SIP</SelectItem>
-                      <SelectItem value="one-time">One-time Lump Sum</SelectItem>
-                      <SelectItem value="ad-hoc">Ad-hoc Top-up</SelectItem>
+                      <SelectItem value="Monthly SIP">Monthly SIP</SelectItem>
+                      <SelectItem value="Quarterly SIP">Quarterly SIP</SelectItem>
+                      <SelectItem value="One-time">One-time Lump Sum</SelectItem>
+                      <SelectItem value="Ad-hoc Top-up">Ad-hoc Top-up</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -123,7 +145,11 @@ const Mandates = () => {
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>Amount</Label>
-                  <Input type="number" placeholder="Enter amount" />
+                  <Input 
+                    type="text" 
+                    placeholder="Enter amount" 
+                    defaultValue={editMode ? selectedMandate?.amount : ''}
+                  />
                 </div>
                 <div className="space-y-2">
                   <Label>Upper Limit</Label>
@@ -142,22 +168,24 @@ const Mandates = () => {
               </div>
               <div className="space-y-2">
                 <Label>Bank Account</Label>
-                <Select>
+                <Select defaultValue={editMode ? selectedMandate?.bank : undefined}>
                   <SelectTrigger>
                     <SelectValue placeholder="Select bank account" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="hdfc">HDFC Bank - ****4567</SelectItem>
-                    <SelectItem value="icici">ICICI Bank - ****8901</SelectItem>
-                    <SelectItem value="axis">Axis Bank - ****2345</SelectItem>
+                    <SelectItem value="HDFC Bank">HDFC Bank - ****4567</SelectItem>
+                    <SelectItem value="ICICI Bank">ICICI Bank - ****8901</SelectItem>
+                    <SelectItem value="Axis Bank">Axis Bank - ****2345</SelectItem>
+                    <SelectItem value="SBI">SBI - ****6789</SelectItem>
+                    <SelectItem value="Kotak Bank">Kotak Bank - ****3456</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
             </div>
             <div className="flex justify-end gap-3">
-              <Button variant="outline" onClick={() => setOpen(false)}>Cancel</Button>
-              <Button className="bg-kotak-red hover:bg-kotak-red/90" onClick={() => setOpen(false)}>
-                Create Mandate
+              <Button variant="outline" onClick={handleClose}>Cancel</Button>
+              <Button className="bg-kotak-red hover:bg-kotak-red/90" onClick={handleClose}>
+                {editMode ? 'Update Mandate' : 'Create Mandate'}
               </Button>
             </div>
           </DialogContent>
@@ -257,7 +285,7 @@ const Mandates = () => {
                       <Button 
                         size="sm" 
                         variant="ghost"
-                        onClick={() => handleAction("Edit mandate", mandate.customer)}
+                        onClick={() => handleEdit(mandate)}
                       >
                         <Edit className="h-4 w-4" />
                       </Button>
