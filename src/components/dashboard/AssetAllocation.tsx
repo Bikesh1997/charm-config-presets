@@ -22,7 +22,7 @@ const COLORS = {
 
 export const AssetAllocation = ({ byAssetClass, byMarketCap, bySector }: AssetAllocationProps) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:[grid-template-columns:30%_30%_40%] gap-6">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
       <Card>
         <CardHeader>
           <CardTitle className="text-lg">Asset Class Allocation</CardTitle>
@@ -77,15 +77,15 @@ export const AssetAllocation = ({ byAssetClass, byMarketCap, bySector }: AssetAl
         </CardContent>
       </Card>
 
-      <Card>
+      <Card className="lg:col-span-2">
         <CardHeader>
           <CardTitle className="text-lg">Sector Allocation</CardTitle>
         </CardHeader>
         <CardContent>
-          <ResponsiveContainer width="100%" height={250}>
+          <ResponsiveContainer width="100%" height={300}>
             <BarChart data={bySector} layout="vertical">
               <XAxis type="number" unit="%" />
-              <YAxis dataKey="sector" type="category" width={80} />
+              <YAxis dataKey="sector" type="category" width={100} />
               <Tooltip formatter={(value) => `${value}%`} />
               <Bar dataKey="percent" fill="hsl(45, 85%, 65%)">
                 {bySector.map((entry, index) => (
