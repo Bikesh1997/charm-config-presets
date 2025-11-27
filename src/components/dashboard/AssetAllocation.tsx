@@ -22,7 +22,7 @@ const COLORS = {
 
 export const AssetAllocation = ({ byAssetClass, byMarketCap, bySector }: AssetAllocationProps) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:[grid-template-columns:30%_30%_40%] gap-6">
       <Card>
         <CardHeader>
           <CardTitle className="text-lg">Asset Class Allocation</CardTitle>
