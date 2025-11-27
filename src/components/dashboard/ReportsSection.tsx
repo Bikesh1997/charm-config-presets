@@ -26,7 +26,7 @@ export const ReportsSection = ({ reports }: ReportsSectionProps) => {
   const handleDownload = (reportName: string) => {
     setSelectedReport(reportName);
     setShowDialog(true);
-    
+
     // Simulate download after delay
     setTimeout(() => {
       setShowDialog(false);
@@ -38,20 +38,22 @@ export const ReportsSection = ({ reports }: ReportsSectionProps) => {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <FileText className="h-5 w-5" />
             Reports & Documents
           </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
             {reports.map((report, index) => (
-              <div key={index} className="flex items-center justify-between p-3 bg-muted/50 rounded-lg">
+              <div
+                key={index}
+                className="flex items-center justify-between p-3 bg-muted/50 rounded-lg"
+              >
                 <div className="flex items-center gap-3">
                   <FileText className="h-5 w-5 text-kotak-blue" />
                   <span className="font-medium">{report.name}</span>
                 </div>
-                <Button 
-                  variant="ghost" 
+                <Button
+                  variant="ghost"
                   size="sm"
                   onClick={() => handleDownload(report.name)}
                 >
@@ -72,7 +74,11 @@ export const ReportsSection = ({ reports }: ReportsSectionProps) => {
             </DialogTitle>
             <DialogDescription className="pt-4">
               <p className="text-base">
-                Your report <span className="font-semibold text-foreground">{selectedReport}</span> is being downloaded.
+                Your report{" "}
+                <span className="font-semibold text-foreground">
+                  {selectedReport}
+                </span>{" "}
+                is being downloaded.
               </p>
               <p className="text-sm mt-2">
                 The file will be saved to your downloads folder.

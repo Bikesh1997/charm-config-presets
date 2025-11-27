@@ -1,29 +1,52 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
-import { User, Mail, Phone, MapPin, Building2, CreditCard, Shield, Bell, FileText, Edit } from "lucide-react";
+import {
+  User,
+  Mail,
+  Phone,
+  MapPin,
+  Building2,
+  CreditCard,
+  Shield,
+  Bell,
+  FileText,
+  Edit,
+} from "lucide-react";
 
 const Profile = () => {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-kotak-navy">Profile & Settings</h1>
-          <p className="text-muted-foreground">Manage your account information</p>
+          <h1 className="text-3xl font-bold text-kotak-navy">
+            Profile & Settings
+          </h1>
+          <p className="text-muted-foreground">
+            Manage your account information
+          </p>
         </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Profile Summary Card */}
-        <Card className="lg:col-span-1">
+        <Card className="lg:col-span-1 lg:h-fit">
           <CardHeader className="text-center">
             <div className="flex justify-center mb-4">
               <Avatar className="h-24 w-24">
-                <AvatarFallback className="bg-kotak-red text-white text-2xl">RS</AvatarFallback>
+                <AvatarFallback className="bg-kotak-red text-white text-2xl">
+                  RS
+                </AvatarFallback>
               </Avatar>
             </div>
             <CardTitle>Rahul Sharma</CardTitle>
@@ -51,13 +74,20 @@ const Profile = () => {
                 <span className="text-sm font-medium">KOT-PMS-2023-001</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">KYC Status</span>
-                <Badge variant="outline" className="bg-kotak-success/10 text-kotak-success border-kotak-success/20">
+                <span className="text-sm text-muted-foreground">
+                  KYC Status
+                </span>
+                <Badge
+                  variant="outline"
+                  className="bg-kotak-success/10 text-kotak-success border-kotak-success/20"
+                >
                   Verified
                 </Badge>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">Risk Profile</span>
+                <span className="text-sm text-muted-foreground">
+                  Risk Profile
+                </span>
                 <Badge variant="outline">Aggressive</Badge>
               </div>
             </div>
@@ -90,7 +120,11 @@ const Profile = () => {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="email">Email Address</Label>
-                  <Input id="email" type="email" defaultValue="rahul.sharma@email.com" />
+                  <Input
+                    id="email"
+                    type="email"
+                    defaultValue="rahul.sharma@email.com"
+                  />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="phone">Phone Number</Label>
@@ -107,9 +141,14 @@ const Profile = () => {
               </div>
               <div className="space-y-2">
                 <Label htmlFor="address">Residential Address</Label>
-                <Input id="address" defaultValue="301, Kotak Towers, Bandra Kurla Complex, Mumbai - 400051" />
+                <Input
+                  id="address"
+                  defaultValue="301, Kotak Towers, Bandra Kurla Complex, Mumbai - 400051"
+                />
               </div>
-              <Button className="bg-kotak-red hover:bg-kotak-red/90">Save Changes</Button>
+              <Button className="bg-kotak-red hover:bg-kotak-red/90">
+                Save Changes
+              </Button>
             </CardContent>
           </Card>
 
@@ -120,7 +159,9 @@ const Profile = () => {
                 <CreditCard className="h-5 w-5 text-kotak-red" />
                 Bank Account Details
               </CardTitle>
-              <CardDescription>Linked accounts for transactions</CardDescription>
+              <CardDescription>
+                Linked accounts for transactions
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="border rounded-lg p-4 space-y-3">
@@ -129,10 +170,15 @@ const Profile = () => {
                     <Building2 className="h-8 w-8 text-kotak-red" />
                     <div>
                       <p className="font-medium">Kotak Mahindra Bank</p>
-                      <p className="text-sm text-muted-foreground">Account ending in ****3210</p>
+                      <p className="text-sm text-muted-foreground">
+                        Account ending in ****3210
+                      </p>
                     </div>
                   </div>
-                  <Badge variant="outline" className="bg-kotak-success/10 text-kotak-success border-kotak-success/20">
+                  <Badge
+                    variant="outline"
+                    className="bg-kotak-success/10 text-kotak-success border-kotak-success/20"
+                  >
                     Primary
                   </Badge>
                 </div>
@@ -148,7 +194,9 @@ const Profile = () => {
                   </div>
                 </div>
               </div>
-              <Button variant="outline" className="w-full">Add Another Bank Account</Button>
+              <Button variant="outline" className="w-full">
+                Add Another Bank Account
+              </Button>
             </CardContent>
           </Card>
 
@@ -179,7 +227,9 @@ const Profile = () => {
                   <Input id="nomineeShare" defaultValue="100%" />
                 </div>
               </div>
-              <Button className="bg-kotak-red hover:bg-kotak-red/90">Update Nominee</Button>
+              <Button className="bg-kotak-red hover:bg-kotak-red/90">
+                Update Nominee
+              </Button>
             </CardContent>
           </Card>
 
@@ -196,25 +246,37 @@ const Profile = () => {
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="font-medium">Email Notifications</p>
-                    <p className="text-sm text-muted-foreground">Receive updates via email</p>
+                    <p className="text-sm text-muted-foreground">
+                      Receive updates via email
+                    </p>
                   </div>
-                  <Button variant="outline" size="sm">Enabled</Button>
+                  <Button variant="outline" size="sm">
+                    Enabled
+                  </Button>
                 </div>
                 <Separator />
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="font-medium">SMS Alerts</p>
-                    <p className="text-sm text-muted-foreground">Transaction and important alerts</p>
+                    <p className="text-sm text-muted-foreground">
+                      Transaction and important alerts
+                    </p>
                   </div>
-                  <Button variant="outline" size="sm">Enabled</Button>
+                  <Button variant="outline" size="sm">
+                    Enabled
+                  </Button>
                 </div>
                 <Separator />
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="font-medium">WhatsApp Updates</p>
-                    <p className="text-sm text-muted-foreground">Portfolio updates on WhatsApp</p>
+                    <p className="text-sm text-muted-foreground">
+                      Portfolio updates on WhatsApp
+                    </p>
                   </div>
-                  <Button variant="outline" size="sm">Enabled</Button>
+                  <Button variant="outline" size="sm">
+                    Enabled
+                  </Button>
                 </div>
               </div>
             </CardContent>
@@ -233,19 +295,39 @@ const Profile = () => {
               <div className="space-y-3">
                 {[
                   { name: "PAN Card", status: "Verified", date: "15 Mar 2023" },
-                  { name: "Aadhaar Card", status: "Verified", date: "15 Mar 2023" },
-                  { name: "Bank Statement", status: "Verified", date: "15 Mar 2023" },
-                  { name: "Address Proof", status: "Verified", date: "15 Mar 2023" },
+                  {
+                    name: "Aadhaar Card",
+                    status: "Verified",
+                    date: "15 Mar 2023",
+                  },
+                  {
+                    name: "Bank Statement",
+                    status: "Verified",
+                    date: "15 Mar 2023",
+                  },
+                  {
+                    name: "Address Proof",
+                    status: "Verified",
+                    date: "15 Mar 2023",
+                  },
                 ].map((doc) => (
-                  <div key={doc.name} className="flex items-center justify-between p-3 border rounded-lg">
+                  <div
+                    key={doc.name}
+                    className="flex items-center justify-between p-3 border rounded-lg"
+                  >
                     <div className="flex items-center gap-3">
                       <FileText className="h-5 w-5 text-muted-foreground" />
                       <div>
                         <p className="font-medium">{doc.name}</p>
-                        <p className="text-xs text-muted-foreground">Uploaded on {doc.date}</p>
+                        <p className="text-xs text-muted-foreground">
+                          Uploaded on {doc.date}
+                        </p>
                       </div>
                     </div>
-                    <Badge variant="outline" className="bg-kotak-success/10 text-kotak-success border-kotak-success/20">
+                    <Badge
+                      variant="outline"
+                      className="bg-kotak-success/10 text-kotak-success border-kotak-success/20"
+                    >
                       {doc.status}
                     </Badge>
                   </div>

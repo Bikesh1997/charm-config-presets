@@ -1,36 +1,151 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Download, TrendingUp, TrendingDown } from "lucide-react";
 
 const Portfolio = () => {
   const holdings = [
-    { name: "HDFC Bank", quantity: 1284, avgPrice: 1445, currentPrice: 1660, value: 2131440, returns: 14.9, type: "Equity" },
-    { name: "ICICI Bank", quantity: 1051, avgPrice: 960, currentPrice: 1125, value: 1182375, returns: 17.2, type: "Equity" },
-    { name: "Infosys", quantity: 875, avgPrice: 1390, currentPrice: 1675, value: 1465625, returns: 20.5, type: "Equity" },
-    { name: "TCS", quantity: 467, avgPrice: 3320, currentPrice: 3825, value: 1786275, returns: 15.2, type: "Equity" },
-    { name: "Dr. Reddy's", quantity: 292, avgPrice: 5150, currentPrice: 6070, value: 1772440, returns: 17.9, type: "Equity" },
-    { name: "Aurobindo Pharma", quantity: 817, avgPrice: 930, currentPrice: 1025, value: 837425, returns: 10.2, type: "Equity" },
-    { name: "Maruti Suzuki", quantity: 175, avgPrice: 9300, currentPrice: 11150, value: 1951250, returns: 19.9, type: "Equity" },
-    { name: "Eicher Motors", quantity: 233, avgPrice: 3250, currentPrice: 3940, value: 918020, returns: 21.3, type: "Equity" },
-    { name: "Asian Paints", quantity: 408, avgPrice: 2850, currentPrice: 3290, value: 1342320, returns: 15.4, type: "Equity" },
-    { name: "Avenue Supermarts (DMart)", quantity: 175, avgPrice: 3510, currentPrice: 4050, value: 708750, returns: 15.4, type: "Equity" },
+    {
+      name: "HDFC Bank",
+      quantity: 1284,
+      avgPrice: 1445,
+      currentPrice: 1660,
+      value: 2131440,
+      returns: 14.9,
+      type: "Equity",
+    },
+    {
+      name: "ICICI Bank",
+      quantity: 1051,
+      avgPrice: 960,
+      currentPrice: 1125,
+      value: 1182375,
+      returns: 17.2,
+      type: "Equity",
+    },
+    {
+      name: "Infosys",
+      quantity: 875,
+      avgPrice: 1390,
+      currentPrice: 1675,
+      value: 1465625,
+      returns: 20.5,
+      type: "Equity",
+    },
+    {
+      name: "TCS",
+      quantity: 467,
+      avgPrice: 3320,
+      currentPrice: 3825,
+      value: 1786275,
+      returns: 15.2,
+      type: "Equity",
+    },
+    {
+      name: "Dr. Reddy's",
+      quantity: 292,
+      avgPrice: 5150,
+      currentPrice: 6070,
+      value: 1772440,
+      returns: 17.9,
+      type: "Equity",
+    },
+    {
+      name: "Aurobindo Pharma",
+      quantity: 817,
+      avgPrice: 930,
+      currentPrice: 1025,
+      value: 837425,
+      returns: 10.2,
+      type: "Equity",
+    },
+    {
+      name: "Maruti Suzuki",
+      quantity: 175,
+      avgPrice: 9300,
+      currentPrice: 11150,
+      value: 1951250,
+      returns: 19.9,
+      type: "Equity",
+    },
+    {
+      name: "Eicher Motors",
+      quantity: 233,
+      avgPrice: 3250,
+      currentPrice: 3940,
+      value: 918020,
+      returns: 21.3,
+      type: "Equity",
+    },
+    {
+      name: "Asian Paints",
+      quantity: 408,
+      avgPrice: 2850,
+      currentPrice: 3290,
+      value: 1342320,
+      returns: 15.4,
+      type: "Equity",
+    },
+    {
+      name: "Avenue Supermarts (DMart)",
+      quantity: 175,
+      avgPrice: 3510,
+      currentPrice: 4050,
+      value: 708750,
+      returns: 15.4,
+      type: "Equity",
+    },
   ];
 
   const strategies = [
-    { name: "Equity Refinement Strategy (ERS)", invested: 6260000, current: 7200000, returns: 15, allocation: 48 },
-    { name: "Dynamic Delta Diversification (DDD+)", invested: 4955000, current: 5550000, returns: 12, allocation: 37 },
-    { name: "Fixed Income Strategy", invested: 2103000, current: 2250000, returns: 7, allocation: 15 },
+    {
+      name: "Equity Refinement Strategy (ERS)",
+      invested: 6260000,
+      current: 7200000,
+      returns: 15,
+      allocation: 48,
+    },
+    {
+      name: "Dynamic Delta Diversification (DDD+)",
+      invested: 4955000,
+      current: 5550000,
+      returns: 12,
+      allocation: 37,
+    },
+    {
+      name: "Fixed Income Strategy",
+      invested: 2103000,
+      current: 2250000,
+      returns: 7,
+      allocation: 15,
+    },
   ];
 
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-kotak-navy">Portfolio Holdings</h1>
-          <p className="text-muted-foreground">Detailed view of your investments</p>
+          <h1 className="text-3xl font-bold text-kotak-navy">
+            Portfolio Holdings
+          </h1>
+          <p className="text-muted-foreground">
+            Detailed view of your investments
+          </p>
         </div>
         <Button variant="outline" className="gap-2">
           <Download className="h-4 w-4" />
@@ -40,15 +155,33 @@ const Portfolio = () => {
 
       <Tabs defaultValue="strategies" className="space-y-6">
         <TabsList>
-          <TabsTrigger value="strategies">By Strategy</TabsTrigger>
-          <TabsTrigger value="holdings">Individual Holdings</TabsTrigger>
-          <TabsTrigger value="sector">Sector Allocation</TabsTrigger>
+          <TabsTrigger
+            value="strategies"
+            className="border-b-2 border-transparent data-[state=active]:border-kotak-navy"
+          >
+            By Strategy
+          </TabsTrigger>
+          <TabsTrigger
+            value="holdings"
+            className="border-b-2 border-transparent data-[state=active]:border-kotak-navy"
+          >
+            Individual Holdings
+          </TabsTrigger>
+          <TabsTrigger
+            value="sector"
+            className="border-b-2 border-transparent data-[state=active]:border-kotak-navy"
+          >
+            Sector Allocation
+          </TabsTrigger>
         </TabsList>
 
         <TabsContent value="strategies" className="space-y-4">
           <div className="grid gap-4">
             {strategies.map((strategy) => (
-              <Card key={strategy.name}>
+              <Card
+                key={strategy.name}
+                className="bg-gradient-to-br from-kotak-red/10 to-kotak-navy/10 border-kotak-red/20"
+              >
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <div>
@@ -58,7 +191,8 @@ const Portfolio = () => {
                       </CardDescription>
                     </div>
                     <Badge variant="outline" className="text-kotak-success">
-                      {strategy.returns > 0 ? '+' : ''}{strategy.returns}%
+                      {strategy.returns > 0 ? "+" : ""}
+                      {strategy.returns}%
                     </Badge>
                   </div>
                 </CardHeader>
@@ -66,16 +200,27 @@ const Portfolio = () => {
                   <div className="grid grid-cols-3 gap-4">
                     <div>
                       <p className="text-sm text-muted-foreground">Invested</p>
-                      <p className="text-xl font-bold">₹{(strategy.invested / 10000000).toFixed(2)} Cr</p>
+                      <p className="text-xl font-bold">
+                        ₹{(strategy.invested / 10000000).toFixed(2)} Cr
+                      </p>
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">Current Value</p>
-                      <p className="text-xl font-bold">₹{(strategy.current / 10000000).toFixed(2)} Cr</p>
+                      <p className="text-sm text-muted-foreground">
+                        Current Value
+                      </p>
+                      <p className="text-xl font-bold">
+                        ₹{(strategy.current / 10000000).toFixed(2)} Cr
+                      </p>
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">Gains</p>
                       <p className="text-xl font-bold text-kotak-success">
-                        ₹{((strategy.current - strategy.invested) / 100000).toFixed(2)} L
+                        ₹
+                        {(
+                          (strategy.current - strategy.invested) /
+                          100000
+                        ).toFixed(2)}{" "}
+                        L
                       </p>
                     </div>
                   </div>
@@ -106,11 +251,21 @@ const Portfolio = () => {
                 <TableBody>
                   {holdings.map((holding) => (
                     <TableRow key={holding.name}>
-                      <TableCell className="font-medium">{holding.name}</TableCell>
-                      <TableCell className="text-right">{holding.quantity}</TableCell>
-                      <TableCell className="text-right">₹{holding.avgPrice.toLocaleString('en-IN')}</TableCell>
-                      <TableCell className="text-right">₹{holding.currentPrice.toLocaleString('en-IN')}</TableCell>
-                      <TableCell className="text-right">₹{holding.value.toLocaleString('en-IN')}</TableCell>
+                      <TableCell className="font-medium">
+                        {holding.name}
+                      </TableCell>
+                      <TableCell className="text-right">
+                        {holding.quantity}
+                      </TableCell>
+                      <TableCell className="text-right">
+                        ₹{holding.avgPrice.toLocaleString("en-IN")}
+                      </TableCell>
+                      <TableCell className="text-right">
+                        ₹{holding.currentPrice.toLocaleString("en-IN")}
+                      </TableCell>
+                      <TableCell className="text-right">
+                        ₹{holding.value.toLocaleString("en-IN")}
+                      </TableCell>
                       <TableCell className="text-right">
                         <div className="flex items-center justify-end gap-1">
                           {holding.returns > 0 ? (
@@ -118,8 +273,15 @@ const Portfolio = () => {
                           ) : (
                             <TrendingDown className="h-4 w-4 text-destructive" />
                           )}
-                          <span className={holding.returns > 0 ? "text-kotak-success" : "text-destructive"}>
-                            {holding.returns > 0 ? '+' : ''}{holding.returns}%
+                          <span
+                            className={
+                              holding.returns > 0
+                                ? "text-kotak-success"
+                                : "text-destructive"
+                            }
+                          >
+                            {holding.returns > 0 ? "+" : ""}
+                            {holding.returns}%
                           </span>
                         </div>
                       </TableCell>
@@ -135,7 +297,9 @@ const Portfolio = () => {
           <Card>
             <CardHeader>
               <CardTitle>Sector Allocation</CardTitle>
-              <CardDescription>Distribution across market sectors</CardDescription>
+              <CardDescription>
+                Distribution across market sectors
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
@@ -150,7 +314,9 @@ const Portfolio = () => {
                   <div key={sector.sector} className="space-y-2">
                     <div className="flex items-center justify-between">
                       <span className="font-medium">{sector.sector}</span>
-                      <span className="text-muted-foreground">{sector.percentage}%</span>
+                      <span className="text-muted-foreground">
+                        {sector.percentage}%
+                      </span>
                     </div>
                     <div className="h-2 bg-muted rounded-full overflow-hidden">
                       <div
