@@ -21,8 +21,11 @@ export const pmsData = {
 
   "asset_allocation": {
     "by_asset_class": [
-      { "label": "Equity", "percent": 94 },
-      { "label": "Cash", "percent": 6 }
+      { "label": "Equity", "percent": 65 },
+      { "label": "Debt", "percent": 15 },
+      { "label": "Hybrid", "percent": 10 },
+      { "label": "Commodities", "percent": 5 },
+      { "label": "Cash", "percent": 5 }
     ],
     "by_market_cap": [
       { "label": "Large Cap", "percent": 62 },
