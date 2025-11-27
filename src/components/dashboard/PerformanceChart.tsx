@@ -17,7 +17,7 @@ export const PerformanceChart = ({ portfolioValues, benchmarkValues }: Performan
   const [period, setPeriod] = useState("since_inception");
 
   const formatCurrency = (value: number) => {
-    return `₹${(value / 100000).toFixed(1)}L`;
+    return `₹${(value / 10000000).toFixed(2)}Cr`;
   };
 
   const formatDate = (dateStr: string) => {
