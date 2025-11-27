@@ -8,9 +8,16 @@ interface AssetAllocationProps {
 }
 
 const COLORS = {
-  assetClass: ["hsl(var(--kotak-blue))", "hsl(var(--kotak-red))"],
-  marketCap: ["hsl(var(--kotak-blue))", "hsl(var(--kotak-red))", "hsl(142, 71%, 45%)"],
-  sector: ["hsl(var(--kotak-blue))", "hsl(var(--kotak-red))", "hsl(142, 71%, 45%)", "hsl(173, 58%, 39%)", "hsl(45, 93%, 47%)", "hsl(280, 65%, 60%)"]
+  assetClass: ["hsl(var(--kotak-navy))", "hsl(var(--kotak-red))"],
+  marketCap: ["hsl(var(--kotak-navy))", "hsl(var(--kotak-red))", "hsl(var(--kotak-success))"],
+  sector: [
+    "hsl(var(--kotak-navy))",      // Dark navy blue
+    "hsl(var(--kotak-red))",        // Kotak red
+    "hsl(var(--kotak-success))",    // Success green
+    "hsl(200, 85%, 45%)",           // Teal blue
+    "hsl(28, 90%, 55%)",            // Orange
+    "hsl(265, 75%, 60%)"            // Purple
+  ]
 };
 
 export const AssetAllocation = ({ byAssetClass, byMarketCap, bySector }: AssetAllocationProps) => {
@@ -80,7 +87,7 @@ export const AssetAllocation = ({ byAssetClass, byMarketCap, bySector }: AssetAl
               <XAxis type="number" unit="%" />
               <YAxis dataKey="sector" type="category" width={100} />
               <Tooltip formatter={(value) => `${value}%`} />
-              <Bar dataKey="percent" fill="hsl(var(--kotak-blue))">
+              <Bar dataKey="percent" fill="hsl(var(--kotak-navy))">
                 {bySector.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={COLORS.sector[index % COLORS.sector.length]} />
                 ))}
