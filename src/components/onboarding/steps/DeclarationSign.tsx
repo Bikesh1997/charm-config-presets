@@ -70,13 +70,11 @@ const DeclarationSign = () => {
 
   return (
     <div className="space-y-8 animate-fade-in">
-      <div className="w-[540px] mx-auto">
-        <div className="text-left">
-          <h2 className="text-2xl font-bold text-kotak-navy">Declaration and E-Signature</h2>
-        </div>
+      <div className="text-left max-w-xl mx-auto">
+        <h2 className="text-2xl font-bold text-kotak-navy">Declaration and E-Signature</h2>
       </div>
 
-      <div className="w-[540px] mx-auto">
+      <div className="w-[400px] mx-auto">
       {/* Combined Single Card */}
       <Card className="p-6 space-y-6">
         {/* Declaration Section */}
