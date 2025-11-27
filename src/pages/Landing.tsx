@@ -1,4 +1,12 @@
-import { TrendingUp, PieChart, BarChart3, Shield, ArrowRight, Award, Users } from "lucide-react";
+import {
+  TrendingUp,
+  PieChart,
+  BarChart3,
+  Shield,
+  ArrowRight,
+  Award,
+  Users,
+} from "lucide-react";
 import kotakLogo from "@/assets/kotak.svg";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -6,7 +14,7 @@ import { useNavigate } from "react-router-dom";
 
 const Landing = () => {
   const navigate = useNavigate();
-  
+
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -14,27 +22,36 @@ const Landing = () => {
         <div className="container max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <img src={kotakLogo} alt="Kotak Mahindra Bank" className="h-10" />
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#" className="text-sm text-muted-foreground hover:text-kotak-navy transition-colors">
+            <a
+              href="#"
+              className="text-sm text-muted-foreground hover:text-kotak-navy transition-colors"
+            >
               About PMS
             </a>
-            <a href="#" className="text-sm text-muted-foreground hover:text-kotak-navy transition-colors">
+            <a
+              href="#"
+              className="text-sm text-muted-foreground hover:text-kotak-navy transition-colors"
+            >
               Investment Strategies
             </a>
-            <a href="#" className="text-sm text-muted-foreground hover:text-kotak-navy transition-colors">
+            <a
+              href="#"
+              className="text-sm text-muted-foreground hover:text-kotak-navy transition-colors"
+            >
               Performance
             </a>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               size="sm"
-              onClick={() => navigate('/rm-portal/dashboard')}
+              onClick={() => navigate("/rm-portal/dashboard")}
               className="border-kotak-red text-kotak-red hover:bg-kotak-red/5"
             >
-              Login RM
+              RM Login
             </Button>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               size="sm"
-              onClick={() => navigate('/client/dashboard')}
+              onClick={() => navigate("/client/dashboard")}
               className="border-kotak-navy text-kotak-navy hover:bg-kotak-navy/5"
             >
               Dashboard
@@ -48,28 +65,33 @@ const Landing = () => {
         {/* Hero Section */}
         <div className="text-center mb-20 space-y-6">
           <div className="inline-block px-4 py-2 bg-kotak-red/10 rounded-full mb-4">
-            <span className="text-sm font-semibold text-kotak-red">Premium Wealth Management</span>
+            <span className="text-sm font-semibold text-kotak-red">
+              Premium Wealth Management
+            </span>
           </div>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-kotak-navy leading-tight">
-            Kotak Portfolio<br />Management Services
+            Kotak Portfolio
+            <br />
+            Management Services
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Achieve your financial goals with personalized investment strategies managed by expert portfolio managers
+            Achieve your financial goals with personalized investment strategies
+            managed by expert portfolio managers
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-            <Button 
+            <Button
               size="lg"
               onClick={() => {
                 // Clear any cached onboarding state before starting
-                localStorage.removeItem('kotak-pms-onboarding');
-                navigate('/onboarding');
+                localStorage.removeItem("kotak-pms-onboarding");
+                navigate("/onboarding");
               }}
               className="bg-kotak-red hover:bg-kotak-red/90 text-lg h-14 px-10 gap-2 shadow-lg shadow-kotak-red/20"
             >
               Start Your PMS Journey
               <ArrowRight className="h-5 w-5" />
             </Button>
-            <Button 
+            <Button
               variant="outline"
               size="lg"
               className="text-lg h-14 px-10 border-2"
@@ -88,7 +110,9 @@ const Landing = () => {
                   <TrendingUp className="h-7 w-7 text-kotak-red" />
                 </div>
                 <p className="text-3xl font-bold text-kotak-navy">18.5%</p>
-                <p className="text-sm text-muted-foreground">Avg. Annual Returns</p>
+                <p className="text-sm text-muted-foreground">
+                  Avg. Annual Returns
+                </p>
               </div>
             </CardContent>
           </Card>
@@ -100,7 +124,9 @@ const Landing = () => {
                   <Users className="h-7 w-7 text-kotak-red" />
                 </div>
                 <p className="text-3xl font-bold text-kotak-navy">10K+</p>
-                <p className="text-sm text-muted-foreground">Active Investors</p>
+                <p className="text-sm text-muted-foreground">
+                  Active Investors
+                </p>
               </div>
             </CardContent>
           </Card>
@@ -112,7 +138,9 @@ const Landing = () => {
                   <BarChart3 className="h-7 w-7 text-kotak-red" />
                 </div>
                 <p className="text-3xl font-bold text-kotak-navy">₹5000Cr+</p>
-                <p className="text-sm text-muted-foreground">Assets Under Management</p>
+                <p className="text-sm text-muted-foreground">
+                  Assets Under Management
+                </p>
               </div>
             </CardContent>
           </Card>
@@ -124,7 +152,9 @@ const Landing = () => {
                   <Award className="h-7 w-7 text-kotak-red" />
                 </div>
                 <p className="text-3xl font-bold text-kotak-navy">25+</p>
-                <p className="text-sm text-muted-foreground">Years of Excellence</p>
+                <p className="text-sm text-muted-foreground">
+                  Years of Excellence
+                </p>
               </div>
             </CardContent>
           </Card>
@@ -137,7 +167,8 @@ const Landing = () => {
               Why Choose Kotak PMS?
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Experience premium wealth management with dedicated portfolio managers and customized investment strategies
+              Experience premium wealth management with dedicated portfolio
+              managers and customized investment strategies
             </p>
           </div>
 
@@ -147,9 +178,12 @@ const Landing = () => {
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-kotak-red to-pink-600 flex items-center justify-center">
                   <Shield className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="font-semibold text-kotak-navy text-lg">Risk Management</h3>
+                <h3 className="font-semibold text-kotak-navy text-lg">
+                  Risk Management
+                </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Sophisticated risk assessment and portfolio diversification strategies
+                  Sophisticated risk assessment and portfolio diversification
+                  strategies
                 </p>
               </div>
             </Card>
@@ -159,7 +193,9 @@ const Landing = () => {
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-kotak-navy to-blue-600 flex items-center justify-center">
                   <Users className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="font-semibold text-kotak-navy text-lg">Expert Team</h3>
+                <h3 className="font-semibold text-kotak-navy text-lg">
+                  Expert Team
+                </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Dedicated portfolio managers with proven track records
                 </p>
@@ -171,7 +207,9 @@ const Landing = () => {
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-green-600 to-emerald-600 flex items-center justify-center">
                   <PieChart className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="font-semibold text-kotak-navy text-lg">Custom Strategies</h3>
+                <h3 className="font-semibold text-kotak-navy text-lg">
+                  Custom Strategies
+                </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Personalized investment approach aligned with your goals
                 </p>
@@ -183,7 +221,9 @@ const Landing = () => {
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-600 to-indigo-600 flex items-center justify-center">
                   <TrendingUp className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="font-semibold text-kotak-navy text-lg">Performance</h3>
+                <h3 className="font-semibold text-kotak-navy text-lg">
+                  Performance
+                </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Consistent above-market returns with transparent reporting
                 </p>
@@ -198,13 +238,14 @@ const Landing = () => {
             Ready to Grow Your Wealth?
           </h2>
           <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
-            Join thousands of investors who trust Kotak PMS for their wealth management needs
+            Join thousands of investors who trust Kotak PMS for their wealth
+            management needs
           </p>
-          <Button 
+          <Button
             size="lg"
             onClick={() => {
-              localStorage.removeItem('kotak-pms-onboarding');
-              navigate('/onboarding');
+              localStorage.removeItem("kotak-pms-onboarding");
+              navigate("/onboarding");
             }}
             className="bg-kotak-red hover:bg-kotak-red/90 text-lg h-14 px-10 gap-2 shadow-xl"
           >
