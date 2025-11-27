@@ -113,7 +113,9 @@ const Onboarding = () => {
           
           {/* Navigation Buttons */}
           {currentStep !== 1 && currentStep !== 6 && (
-            <NavigationButtons />
+            <div className="mt-8">
+              <NavigationButtons />
+            </div>
           )}
         </div>
       </div>
