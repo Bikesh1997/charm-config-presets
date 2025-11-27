@@ -20,7 +20,9 @@ const Portfolio = () => {
   ];
 
   const strategies = [
-    { name: "Kotak Focused Equity PMS", invested: 12200000, current: 15000000, returns: 22.95, allocation: 100 },
+    { name: "Equity Refinement Strategy (ERS)", invested: 15000000, current: 17300000, returns: 15, allocation: 48 },
+    { name: "Dynamic Delta Diversification (DDD+)", invested: 12000000, current: 13400000, returns: 12, allocation: 37 },
+    { name: "Fixed Income Strategy", invested: 5000000, current: 5400000, returns: 7, allocation: 15 },
   ];
 
   return (
@@ -73,7 +75,7 @@ const Portfolio = () => {
                     <div>
                       <p className="text-sm text-muted-foreground">Gains</p>
                       <p className="text-xl font-bold text-kotak-success">
-                        ₹{((strategy.current - strategy.invested) / 10000000).toFixed(2)} Cr
+                        ₹{((strategy.current - strategy.invested) / 100000).toFixed(2)} L
                       </p>
                     </div>
                   </div>
