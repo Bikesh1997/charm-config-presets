@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
+import { useToast } from "@/hooks/use-toast";
 import {
   Table,
   TableBody,
@@ -30,6 +31,7 @@ import {
 import { FileText, Plus, Pause, Play, Edit, XCircle, CheckCircle2, Clock, AlertCircle } from "lucide-react";
 
 const Mandates = () => {
+  const { toast } = useToast();
   const [open, setOpen] = useState(false);
   const [confirmDialog, setConfirmDialog] = useState(false);
   const [actionMessage, setActionMessage] = useState("");
@@ -57,6 +59,21 @@ const Mandates = () => {
     setOpen(false);
     setEditMode(false);
     setSelectedMandate(null);
+  };
+
+  const handleSubmit = () => {
+    if (editMode) {
+      toast({
+        title: "Mandate Updated",
+        description: `Mandate for ${selectedMandate?.customer} has been updated successfully.`,
+      });
+    } else {
+      toast({
+        title: "Mandate Created",
+        description: "New mandate has been created successfully.",
+      });
+    }
+    handleClose();
   };
 
   const mandates = [
@@ -184,7 +201,7 @@ const Mandates = () => {
             </div>
             <div className="flex justify-end gap-3">
               <Button variant="outline" onClick={handleClose}>Cancel</Button>
-              <Button className="bg-kotak-red hover:bg-kotak-red/90" onClick={handleClose}>
+              <Button className="bg-kotak-red hover:bg-kotak-red/90" onClick={handleSubmit}>
                 {editMode ? 'Update Mandate' : 'Create Mandate'}
               </Button>
             </div>
