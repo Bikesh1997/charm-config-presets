@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
 import { useOnboardingStore } from "@/store/onboardingStore";
-import { Check, Loader2, Shield, Mail, FileText } from "lucide-react";
+import { Check, Loader2, Shield, FileText } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -20,9 +20,6 @@ const DeclarationSign = () => {
   const [declarationAccepted, setDeclarationAccepted] = useState(
     formData.declarationAccepted || false
   );
-  const [eSignMethod, setESignMethod] = useState<'aadhaar' | 'email'>(
-    formData.eSignMethod || 'aadhaar'
-  );
   const [showOTP, setShowOTP] = useState(false);
   const [otp, setOtp] = useState("");
   const [isVerifying, setIsVerifying] = useState(false);
@@ -37,8 +34,8 @@ const DeclarationSign = () => {
   }, [resendTimer]);
 
   useEffect(() => {
-    updateFormData({ declarationAccepted, eSignMethod });
-  }, [declarationAccepted, eSignMethod]);
+    updateFormData({ declarationAccepted });
+  }, [declarationAccepted]);
 
   const handleSendOTP = () => {
     setShowOTP(true);
@@ -121,158 +118,75 @@ const DeclarationSign = () => {
             E-Signature
           </h3>
 
-          <Tabs value={eSignMethod} onValueChange={(v) => setESignMethod(v as 'aadhaar' | 'email')}>
-            <TabsList className="grid w-full grid-cols-2">
-              <TabsTrigger value="aadhaar" className="flex items-center gap-2">
-                <Shield className="h-4 w-4" />
-                Aadhaar e-Sign
-              </TabsTrigger>
-              <TabsTrigger value="email" className="flex items-center gap-2">
-                <Mail className="h-4 w-4" />
-                Email OTP
-              </TabsTrigger>
-            </TabsList>
-
-            <TabsContent value="aadhaar" className="space-y-4 mt-6">
-              {!showOTP ? (
-                <Button
-                  onClick={handleSendOTP}
-                  disabled={!declarationAccepted}
-                  className="w-full h-12 bg-kotak-success hover:bg-kotak-success/90 text-white"
-                >
-                  <Shield className="h-5 w-5 mr-2" />
-                  Sign with Aadhaar OTP
-                </Button>
-              ) : (
-                <div className="space-y-4">
-                  <p className="text-sm text-center text-muted-foreground">
-                    Enter OTP sent to your Aadhaar-linked mobile
+          <div className="space-y-4 mt-6">
+            {!showOTP ? (
+              <Button
+                onClick={handleSendOTP}
+                disabled={!declarationAccepted}
+                className="w-full h-12 bg-kotak-success hover:bg-kotak-success/90 text-white"
+              >
+                <Shield className="h-5 w-5 mr-2" />
+                Sign with Aadhaar OTP
+              </Button>
+            ) : (
+              <div className="space-y-4">
+                <p className="text-sm text-center text-muted-foreground">
+                  Enter OTP sent to your Aadhaar-linked mobile
+                </p>
+                {otpSentMessage && (
+                  <p className="text-sm text-center text-kotak-success font-medium">
+                    {otpSentMessage}
                   </p>
-                  {otpSentMessage && (
-                    <p className="text-sm text-center text-kotak-success font-medium">
-                      {otpSentMessage}
-                    </p>
-                  )}
-                  <div className="flex justify-center">
-                    <InputOTP
-                      maxLength={6}
-                      value={otp}
-                      onChange={(value) => setOtp(value)}
-                      disabled={isVerifying}
-                    >
-                      <InputOTPGroup>
-                        <InputOTPSlot index={0} />
-                        <InputOTPSlot index={1} />
-                        <InputOTPSlot index={2} />
-                        <InputOTPSlot index={3} />
-                        <InputOTPSlot index={4} />
-                        <InputOTPSlot index={5} />
-                      </InputOTPGroup>
-                    </InputOTP>
-                  </div>
-
-                  {isVerifying && (
-                    <div className="flex items-center justify-center gap-2 text-kotak-success">
-                      <Loader2 className="h-5 w-5 animate-spin" />
-                      <span className="font-medium">Verifying signature...</span>
-                    </div>
-                  )}
-
-                  {formData.eSignCompleted && (
-                    <div className="flex items-center justify-center gap-2 text-kotak-success animate-scale-in">
-                      <Check className="h-6 w-6" />
-                      <span className="font-semibold">E-signature completed!</span>
-                    </div>
-                  )}
-
-                  <div className="text-sm text-center">
-                    {resendTimer > 0 ? (
-                      <p className="text-muted-foreground">
-                        Resend OTP in <span className="font-semibold">{resendTimer}s</span>
-                      </p>
-                    ) : (
-                      <button
-                        onClick={handleResendOTP}
-                        className="text-kotak-red hover:underline font-medium"
-                      >
-                        Resend OTP
-                      </button>
-                    )}
-                  </div>
+                )}
+                <div className="flex justify-center">
+                  <InputOTP
+                    maxLength={6}
+                    value={otp}
+                    onChange={(value) => setOtp(value)}
+                    disabled={isVerifying}
+                  >
+                    <InputOTPGroup>
+                      <InputOTPSlot index={0} />
+                      <InputOTPSlot index={1} />
+                      <InputOTPSlot index={2} />
+                      <InputOTPSlot index={3} />
+                      <InputOTPSlot index={4} />
+                      <InputOTPSlot index={5} />
+                    </InputOTPGroup>
+                  </InputOTP>
                 </div>
-              )}
-            </TabsContent>
 
-            <TabsContent value="email" className="space-y-4 mt-6">
-              {!showOTP ? (
-                <Button
-                  onClick={handleSendOTP}
-                  disabled={!declarationAccepted}
-                  className="w-full h-12 bg-kotak-red hover:bg-kotak-red/90"
-                >
-                  <Mail className="h-5 w-5 mr-2" />
-                  Send OTP to Email
-                </Button>
-              ) : (
-                <div className="space-y-4">
-                  <p className="text-sm text-center text-muted-foreground">
-                    Enter OTP sent to <span className="font-semibold">{formData.email}</span>
-                  </p>
-                  {otpSentMessage && (
-                    <p className="text-sm text-center text-kotak-success font-medium">
-                      {otpSentMessage}
+                {isVerifying && (
+                  <div className="flex items-center justify-center gap-2 text-kotak-success">
+                    <Loader2 className="h-5 w-5 animate-spin" />
+                    <span className="font-medium">Verifying signature...</span>
+                  </div>
+                )}
+
+                {formData.eSignCompleted && (
+                  <div className="flex items-center justify-center gap-2 text-kotak-success animate-scale-in">
+                    <Check className="h-6 w-6" />
+                    <span className="font-semibold">E-signature completed!</span>
+                  </div>
+                )}
+
+                <div className="text-sm text-center">
+                  {resendTimer > 0 ? (
+                    <p className="text-muted-foreground">
+                      Resend OTP in <span className="font-semibold">{resendTimer}s</span>
                     </p>
-                  )}
-                  <div className="flex justify-center">
-                    <InputOTP
-                      maxLength={6}
-                      value={otp}
-                      onChange={(value) => setOtp(value)}
-                      disabled={isVerifying}
+                  ) : (
+                    <button
+                      onClick={handleResendOTP}
+                      className="text-kotak-red hover:underline font-medium"
                     >
-                      <InputOTPGroup>
-                        <InputOTPSlot index={0} />
-                        <InputOTPSlot index={1} />
-                        <InputOTPSlot index={2} />
-                        <InputOTPSlot index={3} />
-                        <InputOTPSlot index={4} />
-                        <InputOTPSlot index={5} />
-                      </InputOTPGroup>
-                    </InputOTP>
-                  </div>
-
-                  {isVerifying && (
-                    <div className="flex items-center justify-center gap-2 text-kotak-red">
-                      <Loader2 className="h-5 w-5 animate-spin" />
-                      <span className="font-medium">Verifying signature...</span>
-                    </div>
+                      Resend OTP
+                    </button>
                   )}
-
-                  {formData.eSignCompleted && (
-                    <div className="flex items-center justify-center gap-2 text-kotak-success animate-scale-in">
-                      <Check className="h-6 w-6" />
-                      <span className="font-semibold">E-signature completed!</span>
-                    </div>
-                  )}
-
-                  <div className="text-sm text-center">
-                    {resendTimer > 0 ? (
-                      <p className="text-muted-foreground">
-                        Resend OTP in <span className="font-semibold">{resendTimer}s</span>
-                      </p>
-                    ) : (
-                      <button
-                        onClick={handleResendOTP}
-                        className="text-kotak-red hover:underline font-medium"
-                      >
-                        Resend OTP
-                      </button>
-                    )}
-                  </div>
                 </div>
-              )}
-            </TabsContent>
-          </Tabs>
+              </div>
+            )}
+          </div>
         </div>
       </Card>
       </div>
